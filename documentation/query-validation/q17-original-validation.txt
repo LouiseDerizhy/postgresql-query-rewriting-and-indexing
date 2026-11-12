@@ -1,0 +1,29 @@
+QUERY VALIDATION REPORT
+=======================
+
+Query: Q17 (Small-Quantity-Order Revenue)
+Variant: Rewritten (R)
+Reference: TPC-H 3.0.1 Clause 2.4.17
+Database: tpch_sf01
+Scale Factor: SF0.1
+Index Configuration: I0 (Primary Key indexes only)
+PostgreSQL Version: 18.6
+
+Parameters:
+BRAND     = Brand#23
+CONTAINER = MED BOX
+
+Execution Status:
+PASS
+
+Returned Rows:
+1
+
+Column Count:
+1
+
+Error:
+None
+
+Notes:
+Query Rewritten berhasil dieksekusi dan menghasilkan satu baris nilai agregat avg_yearly sebesar 23512.752857142857. Nilai tersebut identik dengan hasil query Original. Pemeriksaan kesetaraan dua arah menggunakan EXCEPT ALL juga menghasilkan 0 baris pada kedua arah perbandingan. Pengujian dilakukan pada dataset SF0.1 sebagai validasi teknis pendukung, bukan sebagai bagian dari dataset utama eksperimen.

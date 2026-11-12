@@ -1,0 +1,120 @@
+
+# ============================================================
+# TPC-H GENERATED DATASETS
+# ============================================================
+
+# Generated TPC-H data files
+*.tbl
+
+# Dataset directories
+/dataset/SF0.1/
+/dataset/SF1/
+/dataset/SF10/
+
+# ============================================================
+# DBGEN BUILD ARTIFACTS
+# ============================================================
+
+# Visual Studio build directories
+.vs/
+**/Debug/
+**/Release/
+**/x64/
+**/x86/
+**/ipch/
+
+# Compiled binaries and object files
+*.exe
+*.dll
+*.obj
+*.o
+*.pdb
+*.ilk
+*.lib
+*.exp
+*.pch
+*.sdf
+*.opensdf
+*.VC.db
+*.VC.VC.opendb
+
+# Visual Studio generated files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ============================================================
+# POSTGRESQL DATA AND BACKUPS
+# ============================================================
+
+# PostgreSQL physical data directories
+/pgdata/
+/postgres-data/
+/postgresql-data/
+
+# Database backup files
+*.backup
+*.dump
+*.bak
+*.sql.gz
+*.tar
+
+# ============================================================
+# ENVIRONMENT AND SECRETS
+# ============================================================
+
+.env
+.env.*
+!.env.example
+!.env.template
+
+# Credentials and private keys
+*.pem
+*.key
+*.p12
+*.pfx
+
+# ============================================================
+# LOGS AND TEMPORARY FILES
+# ============================================================
+
+# Runtime logs (keep curated documentation elsewhere)
+ /logs/runtime/
+ /logs/temp/
+
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# ============================================================
+# EDITOR AND OPERATING SYSTEM
+# ============================================================
+
+# VS Code workspace-specific state
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+
+# ============================================================
+# PYTHON / NODE / JAVA (IF USED BY SUPPORTING SCRIPTS)
+# ============================================================
+
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+node_modules/
+target/
+
+/tools/TPC-H V3.0.1/

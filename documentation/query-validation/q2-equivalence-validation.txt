@@ -1,0 +1,36 @@
+# Q2 SQL Equivalence Validation Report
+
+## 1. Informasi Pengujian
+- Query: TPC-H Q2 (Minimum Cost Supplier)
+- DBMS: PostgreSQL 18.6
+- Database: tpch_sf1
+- Scale Factor: SF1
+- Index Configuration: I0 (Primary Key indexes only)
+- Parameter:
+  - SIZE = 15
+  - TYPE = BRASS
+  - REGION = EUROPE
+- Validation Method: Bidirectional EXCEPT ALL
+- Validation Date: 2026-11-12 01:46
+
+## 2. SQL yang Dibandingkan
+- Original: `sql/queries/original/Q2_original.sql`
+- Rewritten: `sql/queries/rewritten/Q2_rewritten.sql`
+- Validation Script: `sql/validation/validate_q2_equivalence.sql`
+
+## 3. Hasil Pengujian
+
+| Validation Check | Expected | Actual | Status |
+|---|---:|---:|---|
+| Original row count | 100 | 100 | PASS |
+| Rewritten row count | 100 | 100 | PASS |
+| Original EXCEPT ALL Rewritten | 0 | 0 | PASS |
+| Rewritten EXCEPT ALL Original | 0 | 0 | PASS |
+
+## 4. Kesimpulan
+Pengujian menunjukkan bahwa hasil query Q2 Original dan Q2 Rewritten memiliki kesetaraan multiset pada dataset SF1 dengan konfigurasi I0 dan parameter validasi yang ditetapkan. Tidak ditemukan baris yang hanya muncul pada salah satu hasil query.
+
+Status: PASS
+
+## 5. Catatan
+Validasi ini merupakan pemeriksaan kesetaraan hasil pada kondisi pengujian yang ditetapkan. Hasil ini belum menjadi bukti kesetaraan untuk seluruh kemungkinan kondisi data dan belum merupakan pengukuran performa query.

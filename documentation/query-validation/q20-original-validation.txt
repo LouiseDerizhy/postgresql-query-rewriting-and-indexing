@@ -1,0 +1,30 @@
+QUERY VALIDATION REPORT
+=======================
+
+Query: Q20 (Potential Part Promotion)
+Variant: Original (O)
+Reference: TPC-H 3.0.1 Clause 2.4.20
+Database: tpch_sf01
+Scale Factor: SF0.1
+Index Configuration: I0 (Primary Key indexes only)
+PostgreSQL Version: 18.6
+
+Parameters:
+COLOR  = forest
+DATE   = 1994-01-01
+NATION = CANADA
+
+Execution Status:
+PASS
+
+Returned Rows:
+9
+
+Column Count:
+2
+
+Error:
+None
+
+Notes:
+Query Original berhasil dieksekusi dan menghasilkan 9 baris data yang terdiri dari nama supplier (s_name) dan alamat supplier (s_address). Hasil ini akan digunakan sebagai pembanding untuk validasi kesetaraan dengan query Rewritten. Pengujian dilakukan pada dataset SF0.1 sebagai validasi teknis pendukung, bukan sebagai bagian dari dataset utama eksperimen.

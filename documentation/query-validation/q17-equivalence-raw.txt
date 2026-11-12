@@ -1,0 +1,14 @@
+Q17 SQL EQUIVALENCE VALIDATION
+
+DBMS                : PostgreSQL 18.6
+Database            : tpch_sf01
+Scale Factor        : SF0.1
+Index Configuration : I0
+Brand               : Brand#23
+Container           : MED BOX
+
+Original Result     : 23512.752857142857
+Rewritten Result    : 23512.752857142857
+Difference          : 0
+
+Preliminary Status: PASS

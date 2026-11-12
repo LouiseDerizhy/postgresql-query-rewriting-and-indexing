@@ -1,0 +1,5 @@
+Name           Used (GB)     Free (GB) Provider      Root                                               CurrentLocation
+----           ---------     --------- --------      ----                                               ---------------
+C                 222.12        143.69 FileSystem    C:\
+D                  14.07         78.70 FileSystem    D:\                                           Downloads\New folder
+G                   1.93         13.07 FileSystem    G:\

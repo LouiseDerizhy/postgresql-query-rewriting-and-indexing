@@ -1,0 +1,49 @@
+
+TPC-H DATA LOADING VALIDATION
+=============================
+
+A. GENERAL INFORMATION
+----------------------
+Database Name    : tpch_sf10
+Scale Factor     : SF10
+DBMS             : PostgreSQL 18.6
+TPC-H Version    : 3.0.1
+Execution Date   : 2026-11-11 23:38
+Loading Status   : SUCCESS
+
+B. DATA LOADING RESULTS
+-----------------------
+Table       Expected Rows    Actual Rows    Status
+-----       -------------    -----------    ------
+customer    1500000          1500000        SUCCESS
+lineitem    59986052         59986052       SUCCESS
+nation      25               25             SUCCESS
+orders      15000000         15000000       SUCCESS
+part        2000000          2000000        SUCCESS
+partsupp    8000000          8000000        SUCCESS
+region      5                5              SUCCESS
+supplier    100000           100000         SUCCESS
+
+Total Expected Rows : 8661245
+Total Actual Rows   : 8661245
+
+C. LOADING VALIDATION SUMMARY
+-----------------------------
+Expected Tables       : 8
+Successfully Loaded   : 8
+Failed Tables         : 0
+Total Rows Expected   : 8661245
+Total Rows Loaded     : 8661245
+
+Overall Loading Status: SUCCESS
+
+D. NOTES
+--------
+1. Dataset generated using TPC-H DBGEN.
+2. Data loaded from the corresponding SF1 .tbl files.
+3. Primary key and foreign key constraints have not
+   been applied at this stage.
+4. Experimental indexes have not been created.
+5. Query performance measurements have not been conducted.
+
+END OF REPORT

@@ -1,0 +1,69 @@
+
+TPC-H CONSTRAINT VALIDATION REPORT
+==================================
+
+A. GENERAL INFORMATION
+----------------------
+Benchmark        : TPC-H 3.0.1
+DBMS             : PostgreSQL 18.6
+Database Name    : tpch_sf10
+Scale Factor     : SF10
+Execution Date   : 2026-11-12 00:30
+Validation Status: SUCCESS
+
+B. PRIMARY KEY VALIDATION
+-------------------------
+Expected PK Constraints : 8
+Actual PK Constraints   : 8
+PK Validation Status   : SUCCESS
+
+Constraint Name       Table       Columns
+---------------       -----       -------
+pk_customer           customer    c_custkey
+pk_lineitem           lineitem    l_orderkey, l_linenumber
+pk_nation             nation      n_nationkey
+pk_orders             orders      o_orderkey
+pk_part               part        p_partkey
+pk_partsupp           partsupp    ps_partkey, ps_suppkey
+pk_region             region      r_regionkey
+pk_supplier           supplier    s_suppkey
+
+C. FOREIGN KEY VALIDATION
+-------------------------
+Expected FK Constraints : 10
+Actual FK Constraints   : 10
+FK Validation Status   : SUCCESS
+
+Constraint Name          Table       Referenced Table
+---------------          -----       ----------------
+fk_nation_region         nation      region
+fk_supplier_nation       supplier    nation
+fk_partsupp_part         partsupp    part
+fk_partsupp_supplier     partsupp    supplier
+fk_customer_nation       customer    nation
+fk_orders_customer       orders      customer
+fk_lineitem_orders       lineitem    orders
+fk_lineitem_partsupp     lineitem    partsupp
+fk_lineitem_part         lineitem    part
+fk_lineitem_supplier     lineitem    supplier
+
+D. VALIDATION SUMMARY
+---------------------
+Constraint Type    Expected    Actual    Status
+---------------    --------    ------    ------
+Primary Key        8           8         SUCCESS
+Foreign Key        10          10        SUCCESS
+Total              18          18        SUCCESS
+
+Overall Validation Status : SUCCESS
+
+E. NOTES
+--------
+1. Constraints were applied after dataset loading.
+2. Primary keys are defined according to the TPC-H schema.
+3. Foreign keys are defined according to the TPC-H relationships.
+4. Primary key constraints automatically create supporting indexes.
+5. No additional experimental indexes (I1/I2) have been created.
+6. No query performance measurements have been conducted.
+
+END OF REPORT

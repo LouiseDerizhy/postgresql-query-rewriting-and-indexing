@@ -1,0 +1,69 @@
+
+TPC-H DBGEN TOOL MANIFEST
+========================
+
+Project:
+Experimental Evaluation of Indexing Strategies and SQL Query Rewriting on PostgreSQL
+
+Tool:
+TPC-H Database Population Generator (DBGEN)
+
+Source directory:
+C:\Coding\thesis\tools\TPC-H V3.0.1\dbgen
+
+Executable:
+dbgen.exe
+
+Executable path:
+C:\Coding\thesis\tools\TPC-H V3.0.1\dbgen\Debug\dbgen.exe
+
+DBGEN version:
+3.0.0
+
+DBGEN release:
+3.0.0 build 0
+
+Source release.h:
+VERSION = 3
+RELEASE = 0
+PATCH = 0
+BUILD = 0
+
+Random seed configuration:
+Defined internally in rnd.h.
+No custom seed modification.
+
+Scale factors:
+SF1
+SF10
+
+Generation parameters:
+-v -f -s 1
+-v -f -s 10
+
+Compiler:
+Microsoft Visual Studio
+[Isi versi Visual Studio dan toolset yang digunakan]
+
+Build configuration:
+Debug
+[Isi platform target, misalnya x64 atau Win32]
+
+Executable SHA256:
+03C02EEED4B2FE469BC456D8A8E5D0328CD74229DA8628476E2A299209F3CBBB
+
+release.h SHA256:
+C44582A90A77B0818D313174F9F0763021F14DD0E2EAA83A6F2A926E28DA6519
+
+rnd.h SHA256:
+DBBB31D88F218A1B7F99D87A26E6D64B3A2A22090275A453F9D8D0F0040091A6
+
+dists.dss SHA256:
+4DC56300DE1E5AC5E1900519794538E2B5D1B6CAF5CD55703BF53000DD748876
+
+Generation date:
+11 November 2026
+
+Notes:
+The original DBGEN source files and random seed definitions
+were not modified for dataset generation.

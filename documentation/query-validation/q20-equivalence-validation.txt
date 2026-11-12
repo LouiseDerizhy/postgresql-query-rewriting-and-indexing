@@ -1,0 +1,42 @@
+# Q20 SQL Equivalence Validation Report
+
+## 1. Informasi Pengujian
+- Query: TPC-H Q20 (Potential Part Promotion)
+- DBMS: PostgreSQL 18.6
+- Database: `tpch_sf01`
+- Scale Factor: SF0.1
+- Index Configuration: I0 (Primary Key indexes only)
+- Parameter:
+  - COLOR = forest
+  - DATE = 1994-01-01
+  - NATION = CANADA
+- Validation Method: Bidirectional `EXCEPT ALL`
+- Validation Date: 2026-11-12
+
+## 2. SQL yang Dibandingkan
+- Original: `sql/queries/original/q20_original.sql`
+- Rewritten: `sql/queries/rewritten/q20_rewritten.sql`
+- Validation Script: `sql/validation/validate_q20_equivalence.sql`
+
+## 3. Hasil Pengujian
+
+| Validation Check | Expected | Actual | Status |
+|---|---:|---:|---|
+| Original row count | 9 | 9 | PASS |
+| Rewritten row count | 9 | 9 | PASS |
+| Original EXCEPT ALL Rewritten | 0 | 0 | PASS |
+| Rewritten EXCEPT ALL Original | 0 | 0 | PASS |
+
+## 4. Kesimpulan
+
+Pengujian menunjukkan bahwa hasil query Q20 Original dan Q20 Rewritten memiliki kesetaraan multiset (*multiset equivalence*) pada dataset SF0.1 dengan konfigurasi I0 dan parameter validasi yang ditetapkan.
+
+Kedua query menghasilkan 9 baris data dengan struktur hasil yang sama, yaitu kolom `s_name` dan `s_address`. Pemeriksaan dua arah menggunakan `EXCEPT ALL` menghasilkan 0 baris pada kedua arah perbandingan. Dengan demikian, tidak ditemukan perbedaan hasil antara query Original dan Rewritten pada kondisi pengujian ini.
+
+**Status: PASS**
+
+## 5. Catatan
+
+Validasi ini merupakan pemeriksaan kesetaraan hasil query pada dataset SF0.1 yang digunakan sebagai dataset pendukung untuk pengujian teknis transformasi SQL.
+
+Hasil ini belum menjadi bukti kesetaraan untuk seluruh kemungkinan kondisi data dan belum merupakan pengukuran performa query. Dataset SF0.1 juga tidak menggantikan dataset utama penelitian, yaitu SF1 dan SF10. Validasi pada dataset utama tetap diperlukan sesuai tahapan validasi penelitian.

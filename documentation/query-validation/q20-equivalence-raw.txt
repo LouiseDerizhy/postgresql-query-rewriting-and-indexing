@@ -1,0 +1,19 @@
+Q20 SQL EQUIVALENCE VALIDATION
+
+DBMS                : PostgreSQL 18.6
+Database            : tpch_sf01
+Scale Factor        : SF0.1
+Index Configuration : I0
+Color               : forest
+Date                : 1994-01-01
+Nation              : CANADA
+
+Original Row Count  : 9
+Rewritten Row Count : 9
+
+Original EXCEPT ALL Rewritten : 0
+Rewritten EXCEPT ALL Original : 0
+
+Equivalence Status  : PASS
+
+Preliminary Status  : PASS

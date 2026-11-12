@@ -1,0 +1,62 @@
+
+POSTGRESQL DATABASE STATISTICS VALIDATION
+==========================================
+
+A. GENERAL INFORMATION
+----------------------
+Database Name    : tpch_sf10
+Scale Factor     : SF10
+DBMS             : PostgreSQL 18.6
+Execution Date   : 2026-11-12 00:47
+Analyze Command  : ANALYZE VERBOSE;
+Validation Status: SUCCESS
+
+B. TABLE STATISTICS
+-------------------
+Table       Actual Rows    Estimated Rows    Last Analyze                     Status
+-----       -----------    --------------    ------------                     ------
+customer    1500000        1500005           2026-11-12 00:45:31.786707+07    SUCCESS
+lineitem    59986052       59990937          2026-11-12 00:45:39.004066+07    SUCCESS
+nation      25             25                2026-11-12 00:45:25.116977+07    SUCCESS
+orders      15000000       15000783          2026-11-12 00:45:35.009165+07    SUCCESS
+part        2000000        1999990           2026-11-12 00:45:27.492873+07    SUCCESS
+partsupp    8000000        8002126           2026-11-12 00:45:30.350925+07    SUCCESS
+region      5              5                 2026-11-12 00:45:25.104789+07    SUCCESS
+supplier    100000         100000            2026-11-12 00:45:25.811479+07    SUCCESS
+
+C. ANALYZE VALIDATION SUMMARY
+------------------------------
+Expected Tables        : 8
+Tables with Statistics : 8
+Tables Analyzed        : 8
+Analyze Status         : SUCCESS
+
+D. ADDITIONAL STATISTICS
+------------------------
+Table       Last Auto Analyze
+-----       -----------------
+customer    2026-11-12 00:14:15.953294+07
+lineitem    NULL
+nation      NULL
+orders      2026-11-12 00:30:49.534781+07
+part        2026-11-12 00:10:31.58543+07
+partsupp    2026-11-12 00:25:07.797649+07
+region      NULL
+supplier    2026-11-12 00:10:09.853453+07
+
+E. NOTES
+--------
+1. ANALYZE VERBOSE was executed manually.
+2. All eight tables have recorded manual ANALYZE timestamps.
+3. Estimated row counts (n_live_tup) are statistical
+   estimates maintained by PostgreSQL.
+4. Actual row counts are based on the previous
+   database loading validation.
+5. Last Auto Analyze timestamps are recorded separately
+   and do not replace the manual ANALYZE timestamps.
+6. No experimental indexes (I1/I2) have been created.
+7. No query performance measurements have been conducted.
+
+OVERALL VALIDATION STATUS: SUCCESS
+
+END OF REPORT

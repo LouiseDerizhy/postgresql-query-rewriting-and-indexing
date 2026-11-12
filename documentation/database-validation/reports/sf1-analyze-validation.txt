@@ -1,0 +1,44 @@
+
+POSTGRESQL DATABASE STATISTICS VALIDATION
+==========================================
+
+A. GENERAL INFORMATION
+----------------------
+Database Name    : tpch_sf1
+Scale Factor     : SF1
+DBMS             : PostgreSQL 18.6
+Execution Date   : 2026-11-12 00:43
+Analyze Command  : ANALYZE VERBOSE;
+Validation Status: SUCCESS
+
+B. TABLE STATISTICS
+-------------------
+Table       Actual Rows    Estimated Rows    Last Analyze                     Status
+-----       -----------    --------------    ------------                     ------
+customer    150000         150000            2026-11-12 00:42:11.662682+07    SUCCESS
+lineitem    6001215        6001612           2026-11-12 00:42:09.783939+07    SUCCESS
+nation      25             25                2026-11-12 00:42:09.798747+07    SUCCESS
+orders      1500000        1500000           2026-11-12 00:42:12.438449+07    SUCCESS
+part        200000         200000            2026-11-12 00:42:10.551535+07    SUCCESS
+partsupp    800000         800000            2026-11-12 00:42:11.056707+07    SUCCESS
+region      5              5                 2026-11-12 00:42:09.795811+07    SUCCESS
+supplier    10000          10000             2026-11-12 00:42:09.963155+07    SUCCESS
+
+C. ANALYZE VALIDATION SUMMARY
+------------------------------
+Expected Tables        : 8
+Tables with Statistics : 8
+Tables Analyzed        : 8
+Analyze Status         : SUCCESS
+
+D. NOTES
+--------
+1. ANALYZE VERBOSE was executed manually.
+2. Statistics are maintained by PostgreSQL.
+3. Estimated row counts are statistical estimates.
+4. No experimental indexes (I1/I2) have been created.
+5. No query performance measurements have been conducted.
+
+OVERALL VALIDATION STATUS: PENDING
+
+END OF REPORT

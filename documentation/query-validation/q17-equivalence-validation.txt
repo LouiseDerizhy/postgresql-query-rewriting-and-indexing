@@ -1,0 +1,43 @@
+# Q17 SQL Equivalence Validation Report
+
+## 1. Informasi Pengujian
+- Query: TPC-H Q17 (Small-Quantity-Order Revenue)
+- DBMS: PostgreSQL 18.6
+- Database: `tpch_sf01`
+- Scale Factor: SF0.1
+- Index Configuration: I0 (Primary Key indexes only)
+- Parameter:
+  - BRAND = Brand#23
+  - CONTAINER = MED BOX
+- Validation Method: Bidirectional `EXCEPT ALL`
+- Validation Date: 2026-11-12
+
+## 2. SQL yang Dibandingkan
+- Original: `sql/queries/original/Q17_original.sql`
+- Rewritten: `sql/queries/rewritten/Q17_rewritten.sql`
+- Validation Script: `sql/validation/validate_q17_equivalence.sql`
+
+## 3. Hasil Pengujian
+
+| Validation Check | Expected | Actual | Status |
+|---|---:|---:|---|
+| Original row count | 1 | 1 | PASS |
+| Rewritten row count | 1 | 1 | PASS |
+| Original result | 23512.752857142857 | 23512.752857142857 | PASS |
+| Rewritten result | 23512.752857142857 | 23512.752857142857 | PASS |
+| Original EXCEPT ALL Rewritten | 0 | 0 | PASS |
+| Rewritten EXCEPT ALL Original | 0 | 0 | PASS |
+
+## 4. Kesimpulan
+
+Pengujian menunjukkan bahwa hasil query Q17 Original dan Q17 Rewritten memiliki kesetaraan multiset (*multiset equivalence*) pada dataset SF0.1 dengan konfigurasi I0 dan parameter validasi yang ditetapkan.
+
+Kedua query menghasilkan satu baris dengan nilai `avg_yearly` yang identik, yaitu `23512.752857142857`. Pemeriksaan dua arah menggunakan `EXCEPT ALL` juga menghasilkan 0 baris pada kedua arah perbandingan. Dengan demikian, tidak ditemukan perbedaan hasil antara query Original dan Rewritten pada kondisi pengujian ini.
+
+**Status: PASS**
+
+## 5. Catatan
+
+Validasi ini merupakan pemeriksaan kesetaraan hasil query pada dataset SF0.1 yang digunakan sebagai dataset pendukung untuk pengujian teknis transformasi SQL.
+
+Hasil ini belum menjadi bukti kesetaraan untuk seluruh kemungkinan kondisi data dan belum merupakan pengukuran performa query. Dataset SF0.1 juga tidak menggantikan dataset utama penelitian, yaitu SF1 dan SF10. Validasi pada dataset utama tetap diperlukan sesuai tahapan validasi penelitian.
