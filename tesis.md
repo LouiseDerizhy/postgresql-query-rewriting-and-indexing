@@ -14,191 +14,201 @@
 
 **DAFTAR ISI**
 
-[BAB I PENDAHULUAN 5](#_Toc244895398)
+[DAFTAR SINGKATAN DAN NOTASI 5](#daftar-gambar)
 
-[1.1 Latar Belakang 5](#11-latar-belakang)
+[BAB I PENDAHULUAN 6](#bab-ipendahuluan)
 
-[1.2 Rumusan Masalah 7](#12-rumusan-masalah)
+[1.1 Latar Belakang 6](#11-latar-belakang)
 
-[1.3 Tujuan 7](#13-tujuan)
+[1.2 Rumusan Masalah 8](#12-rumusan-masalah)
 
-[1.4 Manfaat 8](#14-manfaat)
+[1.3 Tujuan 8](#13-tujuan)
 
-[1.5 Ruang Lingkup 8](#15-ruang-lingkup)
+[1.4 Manfaat 9](#14-manfaat)
 
-[BAB II KAJIAN LITERATUR 10](#bab-iikajian-literatur)
+[1.5 Ruang Lingkup 9](#15-ruang-lingkup)
 
-[2.1 State of the Art 10](#21-state-of-the-art)
+[BAB II KAJIAN LITERATUR 11](#bab-iikajian-literatur)
 
-[2.1.1 Penelitian tentang Optimasi Query dan Pemilihan Execution Plan 10](#211-penelitian-tentang-optimasi-query-dan-pemilihan-execution-plan)
+[2.1 State of the Art 11](#21-state-of-the-art)
 
-[2.1.2 Penelitian tentang SQL Query Rewriting dan Query Decorrelation 11](#212-penelitian-tentang-sql-query-rewriting-dan-query-decorrelation)
+[2.1.1 Penelitian tentang Optimasi Query dan Pemilihan Execution Plan 11](#211-penelitian-tentang-optimasi-query-dan-pemilihan-execution-plan)
 
-[2.1.3 Penelitian tentang Indexing dan Strategi Akses Data 12](#213-penelitian-tentang-indexing-dan-strategi-akses-data)
+[2.1.2 Penelitian tentang SQL Query Rewriting dan Query Decorrelation 12](#212-penelitian-tentang-sql-query-rewriting-dan-query-decorrelation)
 
-[2.1.4 Penelitian tentang Evaluasi Performa dan Eksperimen Optimasi Query 14](#214-penelitian-tentang-evaluasi-performa-dan-eksperimen-optimasi-query)
+[2.1.3 Penelitian tentang Indexing dan Strategi Akses Data 13](#213-penelitian-tentang-indexing-dan-strategi-akses-data)
 
-[2.2 Sintesis Kritis dan Kesenjangan Penelitian 15](#22-sintesis-kritis-dan-kesenjangan-penelitian)
+[2.1.4 Penelitian tentang Evaluasi Performa dan Eksperimen Optimasi Query 15](#214-penelitian-tentang-evaluasi-performa-dan-eksperimen-optimasi-query)
 
-[2.2.1 Perbandingan Temuan dan Metode Penelitian Terdahulu 15](#221-perbandingan-temuan-dan-metode-penelitian-terdahulu)
+[2.2 Sintesis Kritis dan Kesenjangan Penelitian 16](#22-sintesis-kritis-dan-kesenjangan-penelitian)
 
-[2.2.2 Keterbatasan yang Didukung Sumber 17](#222-keterbatasan-yang-didukung-sumber)
+[2.2.1 Perbandingan Temuan dan Metode Penelitian Terdahulu 16](#221-perbandingan-temuan-dan-metode-penelitian-terdahulu)
+
+[2.2.2 Keterbatasan yang Didukung Sumber 18](#222-keterbatasan-yang-didukung-sumber)
 
 [2.2.3 Celah Penelitian dan Dasar Penelitian 18](#223-celah-penelitian-dan-dasar-penelitian)
 
-[2.3 Tinjauan Objek, Konteks, dan Arsitektur Penelitian 18](#23-tinjauan-objek-konteks-dan-arsitektur-penelitian)
+[2.3 Tinjauan Objek, Konteks, dan Arsitektur Penelitian 19](#23-tinjauan-objek-konteks-dan-arsitektur-penelitian)
 
 [2.3.1 PostgreSQL 18.6 19](#231-postgresql-186)
 
 [2.3.2 Benchmark TPC-H 20](#232-benchmark-tpc-h)
 
-[2.3.3 Query TPC-H Q2, Q17, dan Q20 20](#233-query-tpc-h-q2-q17-dan-q20)
+[2.3.3 Query TPC-H Q2, Q17, dan Q20 21](#233-query-tpc-h-q2-q17-dan-q20)
 
-[2.3.4 Skala Dataset SF1 dan SF10 21](#234-skala-dataset-sf1-dan-sf10)
+[2.3.4 Skala Dataset SF1 dan SF10 22](#234-skala-dataset-sf1-dan-sf10)
 
-[2.3.5 Arsitektur dan Lingkungan Teknis Penelitian 22](#235-arsitektur-dan-lingkungan-teknis-penelitian)
+[2.3.5 Arsitektur dan Lingkungan Teknis Penelitian 23](#235-arsitektur-dan-lingkungan-teknis-penelitian)
 
 [2.4 Landasan Teoretis dan Kerangka Konseptual 23](#24-landasan-teoretis-dan-kerangka-konseptual)
 
 [2.4.1 Pemrosesan dan Optimasi Query sebagai Dasar Pengamatan Kinerja 23](#241-pemrosesan-dan-optimasi-query-sebagai-dasar-pengamatan-kinerja)
 
-[2.4.2 SQL Query Rewriting dan Decorrelation 23](#242-sql-query-rewriting-dan-decorrelation)
+[2.4.2 SQL Query Rewriting dan Decorrelation 24](#242-sql-query-rewriting-dan-decorrelation)
 
-[2.4.3 Indexing dan Strategi Data Akses 25](#243-indexing-dan-strategi-data-akses)
+[2.4.3 Indexing dan Strategi Data Akses 26](#243-indexing-dan-strategi-data-akses)
 
-[2.4.4 Hubungan antara Rewriting, Indexing, Execution Plan, dan Performa 25](#244-hubungan-antara-rewriting-indexing-execution-plan-dan-performa)
+[2.4.4 Hubungan antara Rewriting, Indexing, Execution Plan, dan Performa 26](#244-hubungan-antara-rewriting-indexing-execution-plan-dan-performa)
 
-[2.4.5 Kerangka Konseptual Penelitian 26](#245-kerangka-konseptual-penelitian)
+[2.4.5 Kerangka Konseptual Penelitian 27](#245-kerangka-konseptual-penelitian)
 
-[2.5 Operasionalisasi Konstruk dan Parameter Penelitian 27](#25-operasionalisasi-konstruk-dan-parameter-penelitian)
+[2.5 Operasionalisasi Konstruk dan Parameter Penelitian 28](#25-operasionalisasi-konstruk-dan-parameter-penelitian)
 
-[2.5.1 Faktor Eksperimen dan Kondisi Penelitian 27](#251-faktor-eksperimen-dan-kondisi-penelitian)
+[2.5.1 Faktor Eksperimen dan Kondisi Penelitian 28](#251-faktor-eksperimen-dan-kondisi-penelitian)
 
-[2.5.2 Indikator Performa dan Sumber Pengukuran 28](#252-indikator-performa-dan-sumber-pengukuran)
+[2.5.2 Indikator Performa dan Sumber Pengukuran 29](#252-indikator-performa-dan-sumber-pengukuran)
 
-[2.5.3 Indikator Turunan 30](#253-indikator-turunan)
+[2.5.3 Indikator Turunan 31](#253-indikator-turunan)
 
-[2.5.4 Variabel Kontrol dan Batas Operasional 30](#254-variabel-kontrol-dan-batas-operasional)
+[2.5.4 Variabel Kontrol dan Batas Operasional 32](#254-variabel-kontrol-dan-batas-operasional)
 
-[2.6 Posisi Penelitian dan Pernyataan Kebaruan 30](#26-posisi-penelitian-dan-pernyataan-kebaruan)
+[2.6 Posisi Penelitian dan Pernyataan Kebaruan 32](#26-posisi-penelitian-dan-pernyataan-kebaruan)
 
-[2.6.1 Posisi Penelitian di antara Studi Terdahulu 30](#261-posisi-penelitian-di-antara-studi-terdahulu)
+[2.6.1 Posisi Penelitian di antara Studi Terdahulu 32](#261-posisi-penelitian-di-antara-studi-terdahulu)
 
-[2.6.2 Kontribusi Empiris yang Dituju 32](#262-kontribusi-empiris-yang-dituju)
+[2.6.2 Kontribusi Empiris yang Dituju 33](#262-kontribusi-empiris-yang-dituju)
 
-[2.6.3 Pernyataan Kebaruan dan Batasnya 32](#263-pernyataan-kebaruan-dan-batasnya)
+[2.6.3 Pernyataan Kebaruan dan Batasnya 34](#263-pernyataan-kebaruan-dan-batasnya)
 
-[2.6.4 Batas Generalisasi Hasil 33](#264-batas-generalisasi-hasil)
+[2.6.4 Batas Generalisasi Hasil 35](#264-batas-generalisasi-hasil)
 
-[BAB III METODOLOGI PENELITIAN 35](#bab-iiimetodologi-penelitian)
+[BAB III METODOLOGI PENELITIAN 37](#bab-iiimetodologi-penelitian)
 
-[3.1 Analisis Masalah dan Formulasi 35](#31-analisis-masalah-dan-formulasi)
+[3.1 Analisis Masalah dan Formulasi 37](#31-analisis-masalah-dan-formulasi)
 
-[3.1.1 Alur Input-Proses-Output 35](#311-alur-input-proses-output)
+[3.1.1 Alur Input-Proses-Output 37](#311-alur-input-proses-output)
 
-[3.1.2 Ringkasan Kesenjangan 36](#312-ringkasan-kesenjangan)
+[3.1.2 Ringkasan Kesenjangan 38](#312-ringkasan-kesenjangan)
 
-[3.1.3 Asumsi 36](#313-asumsi)
+[3.1.3 Asumsi 38](#313-asumsi)
 
-[3.1.4 Skenario dan Struktur Kondisi Eksperimen 37](#314-skenario-dan-struktur-kondisi-eksperimen)
+[3.1.4 Skenario dan Struktur Kondisi Eksperimen 39](#314-skenario-dan-struktur-kondisi-eksperimen)
 
-[3.1.5 Unit Analisis 37](#315-unit-analisis)
+[3.1.5 Unit Analisis 39](#315-unit-analisis)
 
-[3.1.6 Pemetaan Rumusan Masalah ke Keluaran 37](#316-pemetaan-rumusan-masalah-ke-keluaran)
+[3.1.6 Pemetaan Rumusan Masalah ke Keluaran 39](#316-pemetaan-rumusan-masalah-ke-keluaran)
 
-[3.2 Research Design 38](#32-research-design)
+[3.2 Research Design 40](#32-research-design)
 
-[3.2.1 Pendekatan Eksperimen 38](#321-pendekatan-eksperimen)
+[3.2.1 Pendekatan Eksperimen 40](#321-pendekatan-eksperimen)
 
-[3.2.2 Desain Faktorial Penuh Terblok 38](#322-desain-faktorial-penuh-terblok)
+[3.2.2 Desain Faktorial Penuh Terblok 40](#322-desain-faktorial-penuh-terblok)
 
-[3.2.3 Variabel Penelitian 40](#323-variabel-penelitian)
+[3.2.3 Variabel Penelitian 42](#323-variabel-penelitian)
 
-[3.2.4 Batas Inferensi 41](#324-batas-inferensi)
+[3.2.4 Batas Inferensi 43](#324-batas-inferensi)
 
-[3.3 Data, Sampling, dan Partisipan 41](#33-data-sampling-dan-partisipan)
+[3.3 Data, Sampling, dan Partisipan 43](#33-data-sampling-dan-partisipan)
 
-[3.3.1 Partisipan dan Sumber Data 41](#331-partisipan-dan-sumber-data)
+[3.3.1 Partisipan dan Sumber Data 43](#331-partisipan-dan-sumber-data)
 
-3.3.2 [Populasi, Sampel, dan Justifikasi 42](#332-populasi-sampel-dan-justifikasi)
+[3.3.2 Populasi, Sampel, dan Justifikasi 44](#332-populasi-sampel-dan-justifikasi)
 
-[3.3.3 Pembangkitan, Pemuatan, dan Verifikasi Data 42](#333-pembangkitan-pemuatan-dan-verifikasi-data)
+[3.3.3 Pembangkitan, Pemuatan, dan Verifikasi Data 44](#333-pembangkitan-pemuatan-dan-verifikasi-data)
 
-[3.3.4 Parameter _Query_ serta Inklusi dan Eksklusi 43](#334-parameter-query-serta-inklusi-dan-eksklusi)
+[3.3.4 Parameter _Query_ serta Inklusi dan Eksklusi 45](#334-parameter-query-serta-inklusi-dan-eksklusi)
 
-[3.4 Instrumentasi dan Lingkungan Penelitian 44](#34-instrumentasi-dan-lingkungan-penelitian)
+[3.4 Instrumentasi dan Lingkungan Penelitian 47](#34-instrumentasi-dan-lingkungan-penelitian)
 
-[3.4.1 Perangkat Keras dan Sistem Operasi 44](#341-perangkat-keras-dan-sistem-operasi)
+[3.4.1 Perangkat Keras dan Sistem Operasi 47](#341-perangkat-keras-dan-sistem-operasi)
 
-[3.4.2 Perangkat Lunak 44](#342-perangkat-lunak)
+[3.4.2 Perangkat Lunak 47](#342-perangkat-lunak)
 
-[3.4.3 Konfigurasi Server 45](#343-konfigurasi-server)
+[3.4.3 Konfigurasi Server 48](#343-konfigurasi-server)
 
-[3.4.4 Instrumen Ukur 46](#344-instrumen-ukur)
+[3.4.4 Instrumen Ukur 49](#344-instrumen-ukur)
 
-[3.4.5 Kontrol Lingkungan 47](#345-kontrol-lingkungan)
+[3.4.5 Kontrol Lingkungan 50](#345-kontrol-lingkungan)
 
-[3.4.6 Struktur Repositori 48](#346-struktur-repositori)
+[3.4.6 Struktur Repositori 51](#346-struktur-repositori)
 
-[3.5 Kerangka dan Arsitektur Eksperimen 48](#35-kerangka-dan-arsitektur-eksperimen)
+[3.5 Kerangka dan Arsitektur Eksperimen 51](#35-kerangka-dan-arsitektur-eksperimen)
 
-[3.5.1 Arsitektur Kerangka 49](#351-arsitektur-kerangka)
+[3.5.1 Arsitektur Kerangka 52](#351-arsitektur-kerangka)
 
-[3.5.2 Rasional Teoritis 50](#352-rasional-teoritis)
+[3.5.2 Rasional Teoritis 53](#352-rasional-teoritis)
 
-[3.5.3 Rancangan Level Indeks 50](#353-rancangan-level-indeks)
+[3.5.3 Rancangan Level Indeks 53](#353-rancangan-level-indeks)
 
-[3.5.4 Rancangan Bentuk R 52](#354-rancangan-bentuk-r)
+[3.5.4 Rancangan Bentuk R 55](#354-rancangan-bentuk-r)
 
-[3.5.5 Kriteria Kesetaraan Hasil 53](#355-kriteria-kesetaraan-hasil)
+[3.5.5 Kriteria Kesetaraan Hasil 56](#355-kriteria-kesetaraan-hasil)
 
-[3.6 Prosedur Eksperimen dan Validasi 53](#36-prosedur-eksperimen-dan-validasi)
+[3.6 Prosedur Eksperimen dan Validasi 57](#36-prosedur-eksperimen-dan-validasi)
 
-[3.6.1 Baseline, Perlakuan, dan Pembanding 53](#361-baseline-perlakuan-dan-pembanding)
+[3.6.1 Baseline, Perlakuan, dan Pembanding 57](#361-baseline-perlakuan-dan-pembanding)
 
-[3.6.2 Gerbang Prosedur 54](#362-gerbang-prosedur)
+[3.6.2 Gerbang Prosedur 57](#362-gerbang-prosedur)
 
-[3.6.3 Validasi Ekuivalensi SQL 55](#363-validasi-ekuivalensi-sql)
+[3.6.3 Validasi Ekuivalensi SQL 59](#363-validasi-ekuivalensi-sql)
 
-[3.6.4 Protokol per Kondisi 56](#364-protokol-per-kondisi)
+[3.6.4 Protokol per Kondisi 59](#364-protokol-per-kondisi)
 
-[3.6.5 Urutan dan Pergantian Level 58](#365-urutan-dan-pergantian-level)
+[3.6.5 Urutan dan Pergantian Level 61](#365-urutan-dan-pergantian-level)
 
-[3.6.6 Pilot 58](#366-pilot)
+[3.6.6 Pilot 62](#366-pilot)
 
-[3.6.7 Penyimpangan Protokol 59](#367-penyimpangan-protokol)
+[3.6.7 Penyimpangan Protokol 63](#367-penyimpangan-protokol)
 
-[3.6.8 Penyimpanan Data Mentah 60](#368-penyimpanan-data-mentah)
+[3.6.8 Penyimpanan Data Mentah 63](#368-penyimpanan-data-mentah)
 
-[3.7 Analisis dan Evaluasi Data 60](#37-analisis-dan-evaluasi-data)
+[3.7 Analisis dan Evaluasi Data 64](#37-analisis-dan-evaluasi-data)
 
-[3.7.1 Pendekatan Analisis 60](#371-pendekatan-analisis)
+[3.7.1 Pendekatan Analisis 64](#371-pendekatan-analisis)
 
-[3.7.2 Ringkasan per Kondisi 60](#372-ringkasan-per-kondisi)
+[3.7.2 Ringkasan per Kondisi 64](#372-ringkasan-per-kondisi)
 
-[3.7.3 Indikator Turunan dan Skala Logaritmik 61](#373-indikator-turunan-dan-skala-logaritmik)
+[3.7.3 Indikator Turunan dan Skala Logaritmik 64](#373-indikator-turunan-dan-skala-logaritmik)
 
-[3.7.4 Pita Variasi dan Klasifikasi Perubahan 61](#374-pita-variasi-dan-klasifikasi-perubahan)
+[3.7.4 Pita Variasi dan Klasifikasi Perubahan 65](#374-pita-variasi-dan-klasifikasi-perubahan)
 
-[3.7.5 Data Tersensor 63](#375-data-tersensor)
+[3.7.5 Data Tersensor 67](#375-data-tersensor)
 
-[3.7.6 Plan dan Buffer 63](#376-plan-dan-buffer)
+[3.7.6 Plan dan Buffer 68](#376-plan-dan-buffer)
 
-[3.7.7 Analisis Manfaat dan Biaya Indeks 64](#377-analisis-manfaat-dan-biaya-indeks)
+[3.7.7 Analisis Manfaat dan Biaya Indeks 68](#377-analisis-manfaat-dan-biaya-indeks)
 
-[3.8 Validitas, Reliabilitas, dan Ancaman terhadap Validitas 64](#38-validitas-reliabilitas-dan-ancaman-terhadap-validitas)
+[3.8 Validitas, Reliabilitas, dan Ancaman terhadap Validitas 69](#38-validitas-reliabilitas-dan-ancaman-terhadap-validitas)
 
-[3.8.1 Validitas Konstruk 64](#381-validitas-konstruk)
+[3.8.1 Validitas Konstruk 69](#381-validitas-konstruk)
 
-[3.8.2 Validitas Internal dan Bias 65](#382-validitas-internal-dan-bias)
+[3.8.2 Validitas Internal dan Bias 70](#382-validitas-internal-dan-bias)
 
-[3.8.3 Validitas Eksternal 67](#383-validitas-eksternal)
+[3.8.3 Validitas Eksternal 71](#383-validitas-eksternal)
 
-[3.8.4 Reliabilitas dan Reproduktibilitas 67](#384-reliabilitas-dan-reproduktibilitas)
+[3.8.4 Reliabilitas dan Reproduktibilitas 71](#384-reliabilitas-dan-reproduktibilitas)
 
-[3.8.5 Keterbatasan 68](#385-keterbatasan)
+[3.8.5 Keterbatasan 72](#385-keterbatasan)
 
-[DAFTAR PUSTAKA 69](#daftar-pustaka)
+[3.9 Tahapan Penelitian 72](#39-tahapan-penelitian)
+
+[3.9.1 Tahapan 72](#391-tahapan)
+
+[3.9.2 Estimasi Waktu Eksperimen Utama 72](#392-estimasi-waktu-eksperimen-utama)
+
+[DAFTAR PUSTAKA 74](#daftar-pustaka)
+
+# DAFTAR GAMBAR
 
 # DAFTAR SINGKATAN DAN NOTASI
 
@@ -1391,3 +1401,539 @@ Waktu G4 diperkirakan dari hasil pilot. Untuk satu kondisi tidak tersensor, wakt
 \[36\] PostgreSQL, "Resource Consumption." Diakses: 1 November 2026. \[Daring\]. Tersedia pada: <https://www.postgresql.org/docs/18/runtime-config-resource.html>
 
 \[37\] T. Kalibera dan R. Jones, "Quantifying Performance Changes with Effect Size Confidence Intervals," Jul 2020, \[Daring\]. Tersedia pada: <http://arxiv.org/abs/2007.10899>
+
+&nbsp;
+
+Lampiran A
+
+**Persiapan Dataset, DDL, dan Konfigurasi Database**
+
+**Lampiran A.1 Informasi dan Versi Perangkat**
+
+Tabel A.1 Informasi dan Versi Perangkat
+
+| **Komponen**   | **Spesifikasi**                         | **Versi**                                                               |
+| -------------- | --------------------------------------- | ----------------------------------------------------------------------- |
+| DBMS           | PostgreSQL                              | PostgreSQL 18.6 on x86_64-windows, compiled by msvc-19.44.35229, 64-bit |
+| _Benchmark_    | TPC-H                                   | 3.0.1                                                                   |
+| Data Generator | dbgen                                   | Version 3.0.0 build 0                                                   |
+| Sistem Operasi | Edition Windows 10 Home Single Language | 22H2                                                                    |
+| Prosesor       | Intel Core i5-10300H                    | 4 Core, 8 Logical Processors                                            |
+| Memori         | RAM 8 GB                                | 7,84 GB usable                                                          |
+| Penyimpanan    | SSD                                     | 477 GB                                                                  |
+
+**Lampiran A.2 Skrip Pembentukan Schema dan PK**
+
+Skrip berikut digunakan untuk membentuk delapan tabel berdasarkan skema TPC-H dan mendefinisikan _primary key_ pada masing-masing tabel.
+
+```
+CREATE TABLE region (
+    r_regionkey  INTEGER NOT NULL,
+    r_name       CHAR(25) NOT NULL,
+    r_comment    VARCHAR(152)
+);
+CREATE TABLE nation (
+    n_nationkey  INTEGER NOT NULL,
+    n_name       CHAR(25) NOT NULL,
+    n_regionkey  INTEGER NOT NULL,
+    n_comment    VARCHAR(152)
+);
+CREATE TABLE part (
+    p_partkey     INTEGER NOT NULL,
+    p_name        VARCHAR(55) NOT NULL,
+    p_mfgr        CHAR(25) NOT NULL,
+    p_brand       CHAR(10) NOT NULL,
+    p_type        VARCHAR(25) NOT NULL,
+    p_size        INTEGER NOT NULL,
+    p_container   CHAR(10) NOT NULL,
+    p_retailprice NUMERIC(15,2) NOT NULL,
+    p_comment     VARCHAR(23) NOT NULL
+);
+CREATE TABLE supplier (
+    s_suppkey   INTEGER NOT NULL,
+    s_name      CHAR(25) NOT NULL,
+    s_address   VARCHAR(40) NOT NULL,
+    s_nationkey INTEGER NOT NULL,
+    s_phone     CHAR(15) NOT NULL,
+    s_acctbal   NUMERIC(15,2) NOT NULL,
+    s_comment   VARCHAR(101) NOT NULL
+);
+CREATE TABLE partsupp (
+    ps_partkey    INTEGER NOT NULL,
+    ps_suppkey    INTEGER NOT NULL,
+    ps_availqty   INTEGER NOT NULL,
+    ps_supplycost NUMERIC(15,2) NOT NULL,
+    ps_comment    VARCHAR(199) NOT NULL
+);
+CREATE TABLE customer (
+    c_custkey    INTEGER NOT NULL,
+    c_name       VARCHAR(25) NOT NULL,
+    c_address    VARCHAR(40) NOT NULL,
+    c_nationkey  INTEGER NOT NULL,
+    c_phone      CHAR(15) NOT NULL,
+    c_acctbal    NUMERIC(15,2) NOT NULL,
+    c_mktsegment CHAR(10) NOT NULL,
+    c_comment    VARCHAR(117) NOT NULL
+);
+CREATE TABLE orders (
+    o_orderkey      INTEGER NOT NULL,
+    o_custkey       INTEGER NOT NULL,
+    o_orderstatus   CHAR(1) NOT NULL,
+    o_totalprice    NUMERIC(15,2) NOT NULL,
+    o_orderdate     DATE NOT NULL,
+    o_orderpriority CHAR(15) NOT NULL,
+    o_clerk         CHAR(15) NOT NULL,
+    o_shippriority  INTEGER NOT NULL,
+    o_comment       VARCHAR(79) NOT NULL
+);
+CREATE TABLE lineitem (
+    l_orderkey      INTEGER NOT NULL,
+    l_partkey       INTEGER NOT NULL,
+    l_suppkey       INTEGER NOT NULL,
+    l_linenumber    INTEGER NOT NULL,
+    l_quantity      NUMERIC(15,2) NOT NULL,
+    l_extendedprice NUMERIC(15,2) NOT NULL,
+    l_discount      NUMERIC(15,2) NOT NULL,
+    l_tax           NUMERIC(15,2) NOT NULL,
+    l_returnflag    CHAR(1) NOT NULL,
+    l_linestatus    CHAR(1) NOT NULL,
+    l_shipdate      DATE NOT NULL,
+    l_commitdate    DATE NOT NULL,
+    l_receiptdate   DATE NOT NULL,
+    l_shipinstruct  CHAR(25) NOT NULL,
+    l_shipmode      CHAR(10) NOT NULL,
+    l_comment       VARCHAR(44) NOT NULL
+);
+ALTER TABLE region
+    ADD CONSTRAINT pk_region
+    PRIMARY KEY (r_regionkey);
+ALTER TABLE nation
+    ADD CONSTRAINT pk_nation
+    PRIMARY KEY (n_nationkey);
+ALTER TABLE part
+    ADD CONSTRAINT pk_part
+    PRIMARY KEY (p_partkey);
+ALTER TABLE supplier
+    ADD CONSTRAINT pk_supplier
+    PRIMARY KEY (s_suppkey);
+ALTER TABLE partsupp
+    ADD CONSTRAINT pk_partsupp
+    PRIMARY KEY (ps_partkey, ps_suppkey);
+ALTER TABLE customer
+    ADD CONSTRAINT pk_customer
+    PRIMARY KEY (c_custkey);
+ALTER TABLE orders
+    ADD CONSTRAINT pk_orders
+    PRIMARY KEY (o_orderkey);
+ALTER TABLE lineitem
+    ADD CONSTRAINT pk_lineitem
+    PRIMARY KEY (l_orderkey, l_linenumber);
+```
+
+**Lampiran A.3 Skrip Pembentukan FK**
+
+Skrip berikut digunakan untuk mendefinisikan _foreign key_ pada masing-masing tabel.
+
+```
+ALTER TABLE nation
+    ADD CONSTRAINT fk_nation_region
+    FOREIGN KEY (n_regionkey)
+    REFERENCES region (r_regionkey);
+ALTER TABLE supplier
+    ADD CONSTRAINT fk_supplier_nation
+    FOREIGN KEY (s_nationkey)
+    REFERENCES nation (n_nationkey);
+ALTER TABLE partsupp
+    ADD CONSTRAINT fk_partsupp_part
+    FOREIGN KEY (ps_partkey)
+    REFERENCES part (p_partkey);
+ALTER TABLE partsupp
+    ADD CONSTRAINT fk_partsupp_supplier
+    FOREIGN KEY (ps_suppkey)
+    REFERENCES supplier (s_suppkey);
+ALTER TABLE customer
+    ADD CONSTRAINT fk_customer_nation
+    FOREIGN KEY (c_nationkey)
+    REFERENCES nation (n_nationkey);
+ALTER TABLE orders
+    ADD CONSTRAINT fk_orders_customer
+    FOREIGN KEY (o_custkey)
+    REFERENCES customer (c_custkey);
+ALTER TABLE lineitem
+    ADD CONSTRAINT fk_lineitem_orders
+    FOREIGN KEY (l_orderkey)
+    REFERENCES orders (o_orderkey);
+ALTER TABLE lineitem
+    ADD CONSTRAINT fk_lineitem_partsupp
+    FOREIGN KEY (l_partkey, l_suppkey)
+    REFERENCES partsupp (ps_partkey, ps_suppkey);
+ALTER TABLE lineitem
+    ADD CONSTRAINT fk_lineitem_part
+    FOREIGN KEY (l_partkey)
+    REFERENCES part (p_partkey);
+ALTER TABLE lineitem
+    ADD CONSTRAINT fk_lineitem_supplier
+    FOREIGN KEY (l_suppkey)
+    REFERENCES supplier (s_suppkey);
+```
+
+**Lampiran A.4 Skrip Pembangkitan Dataset**
+
+```
+Set-Location "C:\Coding\thesis\tools\TPC-H V3.0.1\dbgen"
+.\Debug\dbgen.exe -s 1 -f
+Set-Location "C:\Coding\thesis\tools\TPC-H V3.0.1\dbgen"
+.\Debug\dbgen.exe -s 10 -f
+```
+
+**Lampiran A.5 Skrip Pemuatan Dataset**
+
+```
+-- SF1
+\set ON_ERROR_STOP on
+BEGIN;
+ALTER TABLE region ADD COLUMN dbgen_extra TEXT;
+ALTER TABLE nation ADD COLUMN dbgen_extra TEXT;
+ALTER TABLE part ADD COLUMN dbgen_extra TEXT;
+ALTER TABLE supplier ADD COLUMN dbgen_extra TEXT;
+ALTER TABLE partsupp ADD COLUMN dbgen_extra TEXT;
+ALTER TABLE customer ADD COLUMN dbgen_extra TEXT;
+ALTER TABLE orders ADD COLUMN dbgen_extra TEXT;
+ALTER TABLE lineitem ADD COLUMN dbgen_extra TEXT;
+\copy region FROM 'C:/Coding/thesis/dataset/SF1/region.tbl' WITH (FORMAT text, DELIMITER '|')
+\copy nation FROM 'C:/Coding/thesis/dataset/SF1/nation.tbl' WITH (FORMAT text, DELIMITER '|')
+\copy part FROM 'C:/Coding/thesis/dataset/SF1/part.tbl' WITH (FORMAT text, DELIMITER '|')
+\copy supplier FROM 'C:/Coding/thesis/dataset/SF1/supplier.tbl' WITH (FORMAT text, DELIMITER '|')
+\copy partsupp FROM 'C:/Coding/thesis/dataset/SF1/partsupp.tbl' WITH (FORMAT text, DELIMITER '|')
+\copy customer FROM 'C:/Coding/thesis/dataset/SF1/customer.tbl' WITH (FORMAT text, DELIMITER '|')
+\copy orders FROM 'C:/Coding/thesis/dataset/SF1/orders.tbl' WITH (FORMAT text, DELIMITER '|')
+\copy lineitem FROM 'C:/Coding/thesis/dataset/SF1/lineitem.tbl' WITH (FORMAT text, DELIMITER '|')
+ALTER TABLE region DROP COLUMN dbgen_extra;
+ALTER TABLE nation DROP COLUMN dbgen_extra;
+ALTER TABLE part DROP COLUMN dbgen_extra;
+ALTER TABLE supplier DROP COLUMN dbgen_extra;
+ALTER TABLE partsupp DROP COLUMN dbgen_extra;
+ALTER TABLE customer DROP COLUMN dbgen_extra;
+ALTER TABLE orders DROP COLUMN dbgen_extra;
+ALTER TABLE lineitem DROP COLUMN dbgen_extra;
+COMMIT;
+-- SF10
+\set ON_ERROR_STOP on
+BEGIN;
+ALTER TABLE region ADD COLUMN dbgen_extra TEXT;
+ALTER TABLE nation ADD COLUMN dbgen_extra TEXT;
+ALTER TABLE part ADD COLUMN dbgen_extra TEXT;
+ALTER TABLE supplier ADD COLUMN dbgen_extra TEXT;
+ALTER TABLE partsupp ADD COLUMN dbgen_extra TEXT;
+ALTER TABLE customer ADD COLUMN dbgen_extra TEXT;
+ALTER TABLE orders ADD COLUMN dbgen_extra TEXT;
+ALTER TABLE lineitem ADD COLUMN dbgen_extra TEXT;
+\copy region FROM 'C:/Coding/thesis/dataset/SF10/region.tbl' WITH (FORMAT text, DELIMITER '|')
+\copy nation FROM 'C:/Coding/thesis/dataset/SF10/nation.tbl' WITH (FORMAT text, DELIMITER '|')
+\copy part FROM 'C:/Coding/thesis/dataset/SF10/part.tbl' WITH (FORMAT text, DELIMITER '|')
+\copy supplier FROM 'C:/Coding/thesis/dataset/SF10/supplier.tbl' WITH (FORMAT text, DELIMITER '|')
+\copy partsupp FROM 'C:/Coding/thesis/dataset/SF10/partsupp.tbl' WITH (FORMAT text, DELIMITER '|')
+\copy customer FROM 'C:/Coding/thesis/dataset/SF10/customer.tbl' WITH (FORMAT text, DELIMITER '|')
+\copy orders FROM 'C:/Coding/thesis/dataset/SF10/orders.tbl' WITH (FORMAT text, DELIMITER '|')
+\copy lineitem FROM 'C:/Coding/thesis/dataset/SF10/lineitem.tbl' WITH (FORMAT text, DELIMITER '|')
+ALTER TABLE region DROP COLUMN dbgen_extra;
+ALTER TABLE nation DROP COLUMN dbgen_extra;
+ALTER TABLE part DROP COLUMN dbgen_extra;
+ALTER TABLE supplier DROP COLUMN dbgen_extra;
+ALTER TABLE partsupp DROP COLUMN dbgen_extra;
+ALTER TABLE customer DROP COLUMN dbgen_extra;
+ALTER TABLE orders DROP COLUMN dbgen_extra;
+ALTER TABLE lineitem DROP COLUMN dbgen_extra;
+COMMIT;
+```
+
+**Lampiran A.6 Skrip VACUUM dan ANALYZE**
+
+```
+VACUUM (ANALYZE, VERBOSE);
+ANALYZE VERBOSE;
+```
+
+**Lampiran A.7 Skrip Verifikasi Database**
+
+Tabel A.2 Skrip Verifikasi Database
+
+| **Verifikasi** | **Skrip**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Konstrain      | `SELECT`<br> `CASE contype`<br> `WHEN 'p' THEN 'PRIMARY KEY'`<br> `WHEN 'f' THEN 'FOREIGN KEY'`<br> `END AS constraint_type,`<br> `COUNT(*) AS total_constraints`<br>`FROM pg_constraint`<br>`WHERE connamespace = 'public'::regnamespace`<br> `AND contype IN ('p', 'f')`<br>`GROUP BY contype`<br>`ORDER BY contype;`<br>`SELECT`<br> `conname AS constraint_name,`<br> `CASE contype`<br> `WHEN 'p' THEN 'PRIMARY KEY'`<br> `WHEN 'f' THEN 'FOREIGN KEY'`<br> `END AS constraint_type,`<br> `pg_get_constraintdef(oid) AS definition`<br>`FROM pg_constraint`<br>`WHERE connamespace = 'public'::regnamespace`<br> `AND contype IN ('p', 'f')`<br>`ORDER BY contype, conname;`<br>`SELECT`<br> `conname AS constraint_name,`<br> `convalidated AS is_validated`<br>`FROM pg_constraint`<br>`WHERE connamespace = 'public'::regnamespace`<br> `AND contype IN ('p', 'f')`<br>`ORDER BY conname;` |
+| Jumlah Dataset | `SELECT 'region' AS table_name, COUNT(*) AS row_count FROM region`<br>`UNION ALL`<br>`SELECT 'nation', COUNT(*) FROM nation`<br>`UNION ALL`<br>`SELECT 'part', COUNT(*) FROM part`<br>`UNION ALL`<br>`SELECT 'supplier', COUNT(*) FROM supplier`<br>`UNION ALL`<br>`SELECT 'partsupp', COUNT(*) FROM partsupp`<br>`UNION ALL`<br>`SELECT 'customer', COUNT(*) FROM customer`<br>`UNION ALL`<br>`SELECT 'orders', COUNT(*) FROM orders`<br>`UNION ALL`<br>`SELECT 'lineitem', COUNT(*) FROM lineitem`<br>`ORDER BY table_name;`                                                                                                                                                                                                                                                                                                                                                                     |
+
+**Lampiran A.8 Bukti Hasil Revifikasi**
+
+Tabel A.3 Hasil Verifikasi Jumlah Record SF1
+
+| **Tabel** | **Jumlah Record** |
+| --------- | ----------------- |
+| customer  | 150.000           |
+| lineitem  | 6.001.215         |
+| nation    | 25                |
+| orders    | 1.500.000         |
+| part      | 200.000           |
+| partsupp  | 800.000           |
+| region    | 5                 |
+| supplier  | 10.000            |
+| Total     | 8.661.245         |
+
+Tabel A.4 Hasil Verifikasi Jumlah Record SF2
+
+| **Tabel** | **Jumlah Record** |
+| --------- | ----------------- |
+| customer  | 1.500.000         |
+| lineitem  | 59.986.052        |
+| nation    | 25                |
+| orders    | 15.000.000        |
+| part      | 2.000.000         |
+| partsupp  | 8.000.000         |
+| region    | 5                 |
+| supplier  | 100.000           |
+| Total     | 86.586.082        |
+
+Tabel A.5 Laporan Verifikasi
+
+| **Laporan**                       | **Isi**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Laporan Validasi SF1              | `TPC-H DATASET VALIDATION`<br>`=======================`<br>`Scale Factor: SF1`<br>`DBGEN Version: 3.0.0 build 0`<br>`Generation Status: SUCCESS`<br>`Generated files: 8`<br>`Empty files: 0`<br>`Generation Command:`<br>`dbgen.exe -v -f -s 1`<br>`Validation Method:`<br>`PowerShell line-by-line file reading`<br>`Table Row Counts:`<br>`Table RowCount SizeBytes`<br>`----- -------- ---------`<br>`customer 150000 24496144`<br>`lineitem 6001215 765864502`<br>`nation 25 2249`<br>`orders 1500000 173452161`<br>`part 200000 24335125`<br>`partsupp 800000 119784616`<br>`region 5 394`<br>`supplier 10000 1419184`<br>`Validation Result:`<br>`All eight tables match the expected SF1 row counts.`<br>`All generated files are non-empty.`<br>`Validation Date:`<br>`2026-11-11`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Laporan Validasi SF10             | `TPC-H DATASET VALIDATION`<br>`=======================`<br>`Scale Factor: SF10`<br>`DBGEN Version: 3.0.0 build 0`<br>`Generation Status: SUCCESS`<br>`Generated files: 8`<br>`Empty files: 0`<br>`Generation Command:`<br>`dbgen.exe -v -f -s 10`<br>`Validation Method:`<br>`PowerShell line-by-line file reading`<br>`Table Row Counts:`<br>`Table RowCount SizeBytes`<br>`----- -------- ---------`<br>`customer 1500000 246347642`<br>`lineitem 59986052 7835713740`<br>`nation 25 2249`<br>`orders 15000000 1764195031`<br>`part 2000000 245336157`<br>`partsupp 8000000 1212850769`<br>`region 5 394`<br>`supplier 100000 14276368`<br>`Validation Result:`<br>`All eight tables match the expected SF1 row counts.`<br>`All generated files are non-empty.`<br>`Validation Date:`<br>`2026-11-11`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| Manifest SHA-256                  | `TPC-H DBGEN TOOL MANIFEST`<br>`========================`<br>`Tool:`<br>`TPC-H Database Population Generator (DBGEN)`<br>`Source directory:`<br>`C:\Coding\thesis\tools\TPC-H V3.0.1\dbgen`<br>`Executable:`<br>`dbgen.exe`<br>`Executable path:`<br>`C:\Coding\thesis\tools\TPC-H V3.0.1\dbgen\Debug\dbgen.exe`<br>`DBGEN version:`<br>`3.0.0`<br>`DBGEN release:`<br>`3.0.0 build 0`<br>`Source release.h:`<br>`VERSION = 3`<br>`RELEASE = 0`<br>`PATCH = 0`<br>`BUILD = 0`<br>`Random seed configuration:`<br>`Defined internally in rnd.h.`<br>`No custom seed modification.`<br>`Scale factors:`<br>`SF1`<br>`SF10`<br>`Generation parameters:`<br>`-v -f -s 1`<br>`-v -f -s 10`<br>`Compiler:`<br>`Microsoft Visual Studio v18.12.0`<br>`Build configuration:`<br>`Debug`<br>`X64`<br>`Executable SHA256:`<br>`03C02EEED4B2FE469BC456D8A8E5D0328CD74229DA8628476E2A299209F3CBBB`<br>`release.h SHA256:`<br>`C44582A90A77B0818D313174F9F0763021F14DD0E2EAA83A6F2A926E28DA6519`<br>`rnd.h SHA256:`<br>`DBBB31D88F218A1B7F99D87A26E6D64B3A2A22090275A453F9D8D0F0040091A6`<br>`dists.dss SHA256:`<br>`4DC56300DE1E5AC5E1900519794538E2B5D1B6CAF5CD55703BF53000DD748876`<br>`Generation date:`<br>`2026-11-11`<br>`Notes:`<br>`The original DBGEN source files and random seed definitions`<br>`were not modified for dataset generation.`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Bukti Jumlah FK dan Indeks PK SF1 | `TPC-H CONSTRAINT VALIDATION REPORT`<br>`==================================`<br>`A. GENERAL INFORMATION`<br>`----------------------`<br>`Benchmark : TPC-H 3.0.1`<br>`DBMS : PostgreSQL 18.6`<br>`Database Name : tpch_sf1`<br>`Scale Factor : SF1`<br>`Execution Date : 2026-11-12 00:12`<br>`Validation Status: SUCCESS`<br>`B. PRIMARY KEY VALIDATION`<br>`-------------------------`<br>`Expected PK Constraints : 8`<br>`Actual PK Constraints : 8`<br>`PK Validation Status : SUCCESS`<br>`Constraint Name Table Columns`<br>`--------------- ----- -------`<br>`pk_customer customer c_custkey`<br>`pk_lineitem lineitem l_orderkey, l_linenumber`<br>`pk_nation nation n_nationkey`<br>`pk_orders orders o_orderkey`<br>`pk_part part p_partkey`<br>`pk_partsupp partsupp ps_partkey, ps_suppkey`<br>`pk_region region r_regionkey`<br>`pk_supplier supplier s_suppkey`<br>`C. FOREIGN KEY VALIDATION`<br>`-------------------------`<br>`Expected FK Constraints : 10`<br>`Actual FK Constraints : 10`<br>`FK Validation Status : SUCCESS`<br>`Constraint Name Table Referenced Table`<br>`--------------- ----- ----------------`<br>`fk_nation_region nation region`<br>`fk_supplier_nation supplier nation`<br>`fk_partsupp_part partsupp part`<br>`fk_partsupp_supplier partsupp supplier`<br>`fk_customer_nation customer nation`<br>`fk_orders_customer orders customer`<br>`fk_lineitem_orders lineitem orders`<br>`fk_lineitem_partsupp lineitem partsupp`<br>`fk_lineitem_part lineitem part`<br>`fk_lineitem_supplier lineitem supplier`<br>`D. VALIDATION SUMMARY`<br>`---------------------`<br>`Constraint Type Expected Actual Status`<br>`--------------- -------- ------ ------`<br>`Primary Key 8 8 SUCCESS`<br>`Foreign Key 10 10 SUCCESS`<br>`Total 18 18 SUCCESS`<br>`Overall Validation Status : SUCCESS`<br>`E. NOTES`<br>`--------`<br>`1. Constraints were applied after dataset loading.`<br>`2. Primary keys are defined according to the TPC-H schema.`<br>`3. Foreign keys are defined according to the TPC-H relationships.`<br>`4. Primary key constraints automatically create supporting indexes.`<br>`5. No additional experimental indexes (I1/I2) have been created.`<br>`6. No query performance measurements have been conducted.`<br>`END OF REPORT`   |
+| Bukti Jumlah FK dan Indeks PK SF1 | `TPC-H CONSTRAINT VALIDATION REPORT`<br>`==================================`<br>`A. GENERAL INFORMATION`<br>`----------------------`<br>`Benchmark : TPC-H 3.0.1`<br>`DBMS : PostgreSQL 18.6`<br>`Database Name : tpch_sf10`<br>`Scale Factor : SF10`<br>`Execution Date : 2026-11-12 00:30`<br>`Validation Status: SUCCESS`<br>`B. PRIMARY KEY VALIDATION`<br>`-------------------------`<br>`Expected PK Constraints : 8`<br>`Actual PK Constraints : 8`<br>`PK Validation Status : SUCCESS`<br>`Constraint Name Table Columns`<br>`--------------- ----- -------`<br>`pk_customer customer c_custkey`<br>`pk_lineitem lineitem l_orderkey, l_linenumber`<br>`pk_nation nation n_nationkey`<br>`pk_orders orders o_orderkey`<br>`pk_part part p_partkey`<br>`pk_partsupp partsupp ps_partkey, ps_suppkey`<br>`pk_region region r_regionkey`<br>`pk_supplier supplier s_suppkey`<br>`C. FOREIGN KEY VALIDATION`<br>`-------------------------`<br>`Expected FK Constraints : 10`<br>`Actual FK Constraints : 10`<br>`FK Validation Status : SUCCESS`<br>`Constraint Name Table Referenced Table`<br>`--------------- ----- ----------------`<br>`fk_nation_region nation region`<br>`fk_supplier_nation supplier nation`<br>`fk_partsupp_part partsupp part`<br>`fk_partsupp_supplier partsupp supplier`<br>`fk_customer_nation customer nation`<br>`fk_orders_customer orders customer`<br>`fk_lineitem_orders lineitem orders`<br>`fk_lineitem_partsupp lineitem partsupp`<br>`fk_lineitem_part lineitem part`<br>`fk_lineitem_supplier lineitem supplier`<br>`D. VALIDATION SUMMARY`<br>`---------------------`<br>`Constraint Type Expected Actual Status`<br>`--------------- -------- ------ ------`<br>`Primary Key 8 8 SUCCESS`<br>`Foreign Key 10 10 SUCCESS`<br>`Total 18 18 SUCCESS`<br>`Overall Validation Status : SUCCESS`<br>`E. NOTES`<br>`--------`<br>`1. Constraints were applied after dataset loading.`<br>`2. Primary keys are defined according to the TPC-H schema.`<br>`3. Foreign keys are defined according to the TPC-H relationships.`<br>`4. Primary key constraints automatically create supporting indexes.`<br>`5. No additional experimental indexes (I1/I2) have been created.`<br>`6. No query performance measurements have been conducted.`<br>`END OF REPORT` |
+
+**Lampiran A.9 Konfigurasi PostgreSQL**
+
+Tabel A.6 Konfigurasi PostgreSQL
+
+| **Parameter**        | **Nilai** |
+| -------------------- | --------- |
+| shared_buffers       | 128MB     |
+| work_mem             | 4MB       |
+| effective_cache_size | 4GB       |
+| max_connections      | 100       |
+| statement_timeout    | 0         |
+
+Lampiran B
+
+**Rancangan dan Implementasi Indeks I0, I1, dan I2**
+
+**Lampiran B.1 Inventaris Indeks I0, I1, dan I2**
+
+Konfigurasi indeks dalam penelitian ini disusun secara kumulatif, yaitu I0 ⊂ I1 ⊂ I2. Konfigurasi I0 terdiri atas indeks yang terbentuk dari delapan _primary key_ pada skema TPC-H. Konfigurasi I1 menambahkan lima indeks B-tree satu kolom pada atribut _foreign key_ yang tidak tercakup sebagai kolom awal indeks I0. Konfigurasi I2 menambahkan lima indeks komposit atau _covering index_ untuk mendukung pola filter, korelasi, dan agregasi pada query Q2, Q17, dan Q20.
+
+Seluruh indeks menggunakan metode B-tree. Indeks yang terbentuk dari _primary key_ bersifat unik (_unique_), sedangkan indeks tambahan I1 dan I2 bersifat tidak unik (_non-unique_). Kolom kunci dan kolom INCLUDE dibedakan secara eksplisit karena kolom INCLUDE hanya menyimpan atribut tambahan pada leaf page dan tidak menjadi bagian dari urutan pencarian kunci indeks.
+
+Inventaris berikut menunjukkan nama indeks, tabel, urutan kolom kunci, kolom INCLUDE, sifat keunikan, operator class, query yang menjadi dasar pemilihan, serta alasan teknis setiap indeks.
+
+Tabel B.1 Inventaris Indeks I0, I1, dan I2
+
+| **No.** | **Level** | **Nama indeks**          | **Tabel dan definisi indeks**                                                    | **Query**    |
+| ------- | --------- | ------------------------ | -------------------------------------------------------------------------------- | ------------ |
+| 1       | I0        | region_pkey              | region(r_regionkey) UNIQUE                                                       | Q2           |
+| 2       | I0        | nation_pkey              | nation(n_nationkey) UNIQUE                                                       | Q2           |
+| 3       | I0        | part_pkey                | part(p_partkey) UNIQUE                                                           | Q2, Q17, Q20 |
+| 4       | I0        | supplier_pkey            | supplier(s_suppkey) UNIQUE                                                       | Q2, Q20      |
+| 5       | I0        | partsupp_pkey            | partsupp(ps_partkey, ps_suppkey) UNIQUE                                          | Q2, Q20      |
+| 6       | I0        | customer_pkey            | customer(c_custkey) UNIQUE                                                       | \-           |
+| 7       | I0        | orders_pkey              | orders(o_orderkey) UNIQUE                                                        | \-           |
+| 8       | I0        | lineitem_pkey            | lineitem(l_orderkey, l_linenumber) UNIQUE                                        | Q17, Q20     |
+| 9       | I1        | ix1_nation_regionkey     | nation(n_regionkey)                                                              | Q2           |
+| 10      | I1        | ix1_supplier_nationkey   | supplier(s_nationkey)                                                            | Q2, Q20      |
+| 11      | I1        | ix1_partsupp_suppkey     | partsupp(ps_suppkey)                                                             | Q2, Q20      |
+| 12      | I1        | ix1_lineitem_partkey     | lineitem(l_partkey)                                                              | Q17, Q20     |
+| 13      | I1        | ix1_lineitem_suppkey     | lineitem(l_suppkey)                                                              | Q20          |
+| 14      | I2        | ix2_lineitem_ps_cover    | lineitem(l_partkey, l_suppkey, l_shipdate) INCLUDE (l_quantity, l_extendedprice) | Q17, Q20     |
+| 15      | I2        | ix2_part_brand_container | part(p_brand, p_container) INCLUDE (p_partkey)                                   | Q17          |
+| 16      | I2        | ix2_part_size            | part(p_size) INCLUDE (p_partkey, p_type, p_mfgr)                                 | Q2           |
+| 17      | I2        | ix2_part_name_prefix     | part(p_name varchar_pattern_ops) INCLUDE (p_partkey)                             | Q20          |
+| 18      | I2        | ix2_partsupp_cover       | partsupp(ps_partkey) INCLUDE (ps_suppkey, ps_supplycost, ps_availqty)            | Q2, Q20      |
+
+**Lampiran B.2 Skrip Pembuatan Indeks I1**
+
+```
+CREATE INDEX ix1_nation_regionkey
+ON public.nation USING btree (n_regionkey);
+CREATE INDEX ix1_supplier_nationkey
+ON public.supplier USING btree (s_nationkey);
+CREATE INDEX ix1_partsupp_suppkey
+ON public.partsupp USING btree (ps_suppkey);
+CREATE INDEX ix1_lineitem_partkey
+ON public.lineitem USING btree (l_partkey);
+CREATE INDEX ix1_lineitem_suppkey
+ON public.lineitem USING btree (l_suppkey);
+```
+
+**Lampiran B.3 Skrip Pembuatan Indeks I2**
+
+```
+CREATE INDEX ix2_lineitem_ps_cover
+ON public.lineitem USING btree
+    (l_partkey, l_suppkey, l_shipdate)
+INCLUDE (l_quantity, l_extendedprice);
+CREATE INDEX ix2_part_brand_container
+ON public.part USING btree
+    (p_brand, p_container)
+INCLUDE (p_partkey);
+CREATE INDEX ix2_part_size
+ON public.part USING btree
+    (p_size)
+INCLUDE (p_partkey, p_type, p_mfgr);
+CREATE INDEX ix2_part_name_prefix
+ON public.part USING btree
+    (p_name varchar_pattern_ops)
+INCLUDE (p_partkey);
+CREATE INDEX ix2_partsupp_cover
+ON public.partsupp USING btree
+    (ps_partkey)
+INCLUDE (ps_suppkey, ps_supplycost, ps_availqty);
+```
+
+**Lampiran B.4 Skrip Pengembalian Konfigurasi ke I0**
+
+```
+DROP INDEX IF EXISTS public.ix2_lineitem_ps_cover;
+DROP INDEX IF EXISTS public.ix2_part_brand_container;
+DROP INDEX IF EXISTS public.ix2_part_size;
+DROP INDEX IF EXISTS public.ix2_part_name_prefix;
+DROP INDEX IF EXISTS public.ix2_partsupp_cover;
+DROP INDEX IF EXISTS public.ix1_nation_regionkey;
+DROP INDEX IF EXISTS public.ix1_supplier_nationkey;
+DROP INDEX IF EXISTS public.ix1_partsupp_suppkey;
+DROP INDEX IF EXISTS public.ix1_lineitem_partkey;
+DROP INDEX IF EXISTS public.ix1_lineitem_suppkey;
+```
+
+**Lampiran B.5 Skrip Verifikasi Definisi Indeks**
+
+```
+SELECT
+    tbl.relname AS table_name,
+    idx.relname AS index_name,
+    am.amname AS index_method,
+    pi.indisprimary AS is_primary,
+    pi.indisunique AS is_unique,
+    pg_get_indexdef(idx.oid) AS index_definition
+FROM
+    pg_class idx
+JOIN
+    pg_index pi
+    ON pi.indexrelid = idx.oid
+JOIN
+    pg_class tbl
+    ON tbl.oid = pi.indrelid
+JOIN
+    pg_namespace ns
+    ON ns.oid = tbl.relnamespace
+JOIN
+    pg_am am
+    ON am.oid = idx.relam
+WHERE
+    ns.nspname = 'public'
+    AND tbl.relname IN (
+        'region',
+        'nation',
+        'part',
+        'supplier',
+        'partsupp',
+        'customer',
+        'orders',
+        'lineitem'
+    )
+ORDER BY
+    tbl.relname,
+    idx.relname;
+```
+
+**Lampiran B.6 Skrip Verifikasi Definisi Indeks**
+
+Tabel B.2 Bukti Hasil Implementasi
+
+| **Database** | **Level** | **Jumlah indeks yang diharapkan** | **Jumlah aktual**  | **Status** |
+| ------------ | --------- | --------------------------------- | ------------------ | ---------- |
+| SF1          | I0        | 8                                 | Belum diverifikasi | Pending    |
+| SF1          | I1        | 13                                | Belum diverifikasi | Pending    |
+| SF1          | I2        | 18                                | Belum diverifikasi | Pending    |
+| SF1          | Reset I0  | 8                                 | Belum diverifikasi | Pending    |
+
+**Lampiran B.7 Bukti Biaya Indeks**
+
+Belum dibuat
+
+**Lampiran B.8 Bukti Penguncian Rancangan Indeks**
+
+Menunggu Indeks dibuat
+
+Lampiran C
+
+**SQL Original, SQL Rewriting, dan Validasi Ekuivalensi**
+
+**Lampiran C.1 Parameter Validasi TPC-H**
+
+Validasi SQL Original dan SQL Rewriting menggunakan parameter tetap yang sama untuk setiap query. Penetapan parameter bertujuan menjaga konsistensi input selama pemeriksaan ekuivalensi hasil. Parameter yang digunakan ditunjukkan pada Tabel C.1.
+
+Tabel C.1 Parameter Validasi Query
+
+| **Query** | **Parameter** | **Nilai**  |
+| --------- | ------------- | ---------- |
+| Q2        | SIZE          | 15         |
+| Q2        | TYPE          | BRASS      |
+| Q2        | REGION        | EUROPE     |
+| Q17       | BRAND         | Brand#23   |
+| Q17       | CONTAINER     | MED BOX    |
+| Q20       | COLOR         | forest     |
+| Q20       | DATE          | 1994-01-01 |
+| Q20       | NATION        | CANADA     |
+
+Parameter tersebut digunakan secara konsisten pada SQL Original dan SQL _Rewriting_. Dengan demikian, perbedaan hasil yang ditemukan tidak disebabkan oleh perbedaan nilai parameter.
+
+Validasi teknis dilakukan menggunakan dataset tambahan SF0.1 apabila diperlukan untuk mempercepat pemeriksaan transformasi SQL. Dataset SF0.1 hanya digunakan sebagai sarana pengujian teknis dan tidak menggantikan dataset utama penelitian, yaitu SF1 dan SF10.
+
+**Lampiran C.2 SQL Original**
+
+Tabel C.2 SQL Original
+
+| **Query** | **SQL**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Q2        | `SELECT`<br> `s_acctbal,`<br> `s_name,`<br> `n_name,`<br> `p_partkey,`<br> `p_mfgr,`<br> `s_address,`<br> `s_phone,`<br> `s_comment`<br>`FROM`<br> `part,`<br> `supplier,`<br> `partsupp,`<br> `nation,`<br> `region`<br>`WHERE`<br> `p_partkey = ps_partkey`<br> `AND s_suppkey = ps_suppkey`<br> `AND p_size = 15`<br> `AND p_type LIKE '%BRASS'`<br> `AND s_nationkey = n_nationkey`<br> `AND n_regionkey = r_regionkey`<br> `AND r_name = 'EUROPE'`<br> `AND ps_supplycost = (`<br> `SELECT`<br> `MIN(ps_supplycost)`<br> `FROM`<br> `partsupp,`<br> `supplier,`<br> `nation,`<br> `region`<br> `WHERE`<br> `p_partkey = ps_partkey`<br> `AND s_suppkey = ps_suppkey`<br> `AND s_nationkey = n_nationkey`<br> `AND n_regionkey = r_regionkey`<br> `AND r_name = 'EUROPE'`<br> `)`<br>`ORDER BY`<br> `s_acctbal DESC,`<br> `n_name,`<br> `s_name,`<br> `p_partkey`<br>`LIMIT 100;`                                                                                             |
+| Q17       | `SELECT`<br> `SUM(l_extendedprice) / 7.0 AS avg_yearly`<br>`FROM`<br> `lineitem,`<br> `part`<br>`WHERE`<br> `p_partkey = l_partkey`<br> `AND p_brand = 'Brand#23'`<br> `AND p_container = 'MED BOX'`<br> `AND l_quantity < (`<br> `SELECT`<br> `0.2 * AVG(l_quantity)`<br> `FROM`<br> `lineitem`<br> `WHERE`<br> `l_partkey = p_partkey`<br> `);`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Q20       | SELECT<br><br>&nbsp; s_name,<br><br>&nbsp; s_address<br><br>FROM<br><br>&nbsp; supplier,<br><br>&nbsp; nation<br><br>WHERE<br><br>&nbsp; s_suppkey IN (<br><br>&nbsp; SELECT<br><br>&nbsp; ps_suppkey<br><br>&nbsp; FROM<br><br>&nbsp; partsupp<br><br>&nbsp; WHERE<br><br>&nbsp; ps_partkey IN (<br><br>&nbsp; SELECT<br><br>&nbsp; p_partkey<br><br>&nbsp; FROM<br><br>&nbsp; part<br><br>&nbsp; WHERE<br><br>&nbsp; p_name LIKE 'forest%'<br><br>&nbsp; )<br><br>&nbsp; AND ps_availqty > (<br><br>&nbsp; SELECT<br><br>&nbsp; 0.5 \* SUM(l_quantity)<br><br>&nbsp; FROM<br><br>&nbsp; lineitem<br><br>&nbsp; WHERE<br><br>&nbsp; l_partkey = ps_partkey<br><br>&nbsp; AND l_suppkey = ps_suppkey<br><br>&nbsp; AND l_shipdate >= DATE '1994-01-01'<br><br>&nbsp; AND l_shipdate < DATE '1994-01-01' + INTERVAL '1 year'<br><br>&nbsp; )<br><br>&nbsp; )<br><br>&nbsp; AND s_nationkey = n_nationkey<br><br>&nbsp; AND n_name = 'CANADA'<br><br>ORDER BY<br><br>&nbsp; s_name; |
+
+**Lampiran C.3 SQL Rewriting**
+
+Tabel C.3 SQL Rewriting
+
+| **Query** | **SQL**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Q2        | `WITH min_supply_cost AS (`<br> `SELECT`<br> `ps_partkey,`<br> `MIN(ps_supplycost) AS min_supplycost`<br> `FROM`<br> `partsupp`<br> `JOIN supplier`<br> `ON s_suppkey = ps_suppkey`<br> `JOIN nation`<br> `ON s_nationkey = n_nationkey`<br> `JOIN region`<br> `ON n_regionkey = r_regionkey`<br> `WHERE`<br> `r_name = 'EUROPE'`<br> `GROUP BY`<br> `ps_partkey`<br>`)`<br>`SELECT`<br> `s_acctbal,`<br> `s_name,`<br> `n_name,`<br> `p_partkey,`<br> `p_mfgr,`<br> `s_address,`<br> `s_phone,`<br> `s_comment`<br>`FROM`<br> `part`<br>`JOIN partsupp`<br> `ON p_partkey = ps_partkey`<br>`JOIN supplier`<br> `ON s_suppkey = ps_suppkey`<br>`JOIN nation`<br> `ON s_nationkey = n_nationkey`<br>`JOIN region`<br> `ON n_regionkey = r_regionkey`<br>`JOIN min_supply_cost`<br> `ON min_supply_cost.ps_partkey = p_partkey`<br> `AND ps_supplycost = min_supply_cost.min_supplycost`<br>`WHERE`<br> `p_size = 15`<br> `AND p_type LIKE '%BRASS'`<br> `AND r_name = 'EUROPE'`<br>`ORDER BY`<br> `s_acctbal DESC,`<br> `n_name,`<br> `s_name,`<br> `p_partkey`<br>`LIMIT 100;`                                                                                                                                                                                                                                                                                                      |
+| Q17       | `WITH avg_quantity_by_part AS (`<br> `SELECT`<br> `l_partkey,`<br> `AVG(l_quantity) AS avg_quantity`<br> `FROM`<br> `lineitem`<br> `GROUP BY`<br> `l_partkey`<br>`)`<br>`SELECT`<br> `SUM(l.l_extendedprice) / 7.0 AS avg_yearly`<br>`FROM`<br> `part p`<br>`JOIN lineitem l`<br> `ON p.p_partkey = l.l_partkey`<br>`JOIN avg_quantity_by_part aq`<br> `ON aq.l_partkey = p.p_partkey`<br>`WHERE`<br> `p.p_brand = 'Brand#23'`<br> `AND p.p_container = 'MED BOX'`<br> `AND l.l_quantity < 0.2 * aq.avg_quantity;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Q20       | WITH lineitem_quantity_by_partsupp AS (<br><br>&nbsp; SELECT<br><br>&nbsp; l_partkey,<br><br>&nbsp; l_suppkey,<br><br>&nbsp; SUM(l_quantity) AS total_quantity<br><br>&nbsp; FROM<br><br>&nbsp; lineitem<br><br>&nbsp; WHERE<br><br>&nbsp; l_shipdate >= DATE '1994-01-01'<br><br>&nbsp; AND l_shipdate < DATE '1995-01-01'<br><br>&nbsp; GROUP BY<br><br>&nbsp; l_partkey,<br><br>&nbsp; l_suppkey<br><br>),<br><br>qualifying_suppliers AS (<br><br>&nbsp; SELECT DISTINCT<br><br>&nbsp; ps.ps_suppkey<br><br>&nbsp; FROM<br><br>&nbsp; partsupp ps<br><br>&nbsp; JOIN part p<br><br>&nbsp; ON p.p_partkey = ps.ps_partkey<br><br>&nbsp; JOIN lineitem_quantity_by_partsupp lq<br><br>&nbsp; ON lq.l_partkey = ps.ps_partkey<br><br>&nbsp; AND lq.l_suppkey = ps.ps_suppkey<br><br>&nbsp; WHERE<br><br>&nbsp; p.p_name LIKE 'forest%'<br><br>&nbsp; AND ps.ps_availqty > 0.5 \* lq.total_quantity<br><br>)<br><br>SELECT<br><br>&nbsp; s.s_name,<br><br>&nbsp; s.s_address<br><br>FROM<br><br>&nbsp; supplier s<br><br>JOIN nation n<br><br>&nbsp; ON s.s_nationkey = n.n_nationkey<br><br>JOIN qualifying_suppliers qs<br><br>&nbsp; ON qs.ps_suppkey = s.s_suppkey<br><br>WHERE<br><br>&nbsp; n.n_name = 'CANADA'<br><br>ORDER BY<br><br>&nbsp; s.s_name;<br><br>&nbsp; AND s_nationkey = n_nationkey<br><br>&nbsp; AND n_name = 'CANADA'<br><br>ORDER BY<br><br>&nbsp; s_name; |
+
+**Lampiran C.4 Skrip Validasi Ekuivalensi**
+
+Tabel C.4 SQL Rewriting
+
+| **Query** | **SQL Validasi**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Q2        | `CREATE TEMP TABLE q2_original_result AS`<br>`SELECT`<br> `s_acctbal,`<br> `s_name,`<br> `n_name,`<br> `p_partkey,`<br> `p_mfgr,`<br> `s_address,`<br> `s_phone,`<br> `s_comment`<br>`FROM`<br> `part,`<br> `supplier,`<br> `partsupp,`<br> `nation,`<br> `region`<br>`WHERE`<br> `p_partkey = ps_partkey`<br> `AND s_suppkey = ps_suppkey`<br> `AND p_size = 15`<br> `AND p_type LIKE '%BRASS'`<br> `AND s_nationkey = n_nationkey`<br> `AND n_regionkey = r_regionkey`<br> `AND r_name = 'EUROPE'`<br> `AND ps_supplycost = (`<br> `SELECT`<br> `MIN(ps_supplycost)`<br> `FROM`<br> `partsupp,`<br> `supplier,`<br> `nation,`<br> `region`<br> `WHERE`<br> `p_partkey = ps_partkey`<br> `AND s_suppkey = ps_suppkey`<br> `AND s_nationkey = n_nationkey`<br> `AND n_regionkey = r_regionkey`<br> `AND r_name = 'EUROPE'`<br> `)`<br>`ORDER BY`<br> `s_acctbal DESC,`<br> `n_name,`<br> `s_name,`<br> `p_partkey`<br>`LIMIT 100;`<br>`CREATE TEMP TABLE q2_rewritten_result AS`<br>`WITH min_supply_cost AS (`<br> `SELECT`<br> `ps_partkey,`<br> `MIN(ps_supplycost) AS min_supplycost`<br> `FROM`<br> `partsupp`<br> `JOIN supplier`<br> `ON s_suppkey = ps_suppkey`<br> `JOIN nation`<br> `ON s_nationkey = n_nationkey`<br> `JOIN region`<br> `ON n_regionkey = r_regionkey`<br> `WHERE`<br> `r_name = 'EUROPE'`<br> `GROUP BY`<br> `ps_partkey`<br>`)`<br>`SELECT`<br> `s_acctbal,`<br> `s_name,`<br> `n_name,`<br> `p_partkey,`<br> `p_mfgr,`<br> `s_address,`<br> `s_phone,`<br> `s_comment`<br>`FROM`<br> `part`<br>`JOIN partsupp`<br> `ON p_partkey = ps_partkey`<br>`JOIN supplier`<br> `ON s_suppkey = ps_suppkey`<br>`JOIN nation`<br> `ON s_nationkey = n_nationkey`<br>`JOIN region`<br> `ON n_regionkey = r_regionkey`<br>`JOIN min_supply_cost`<br> `ON min_supply_cost.ps_partkey = p_partkey`<br> `AND ps_supplycost = min_supply_cost.min_supplycost`<br>`WHERE`<br> `p_size = 15`<br> `AND p_type LIKE '%BRASS'`<br> `AND r_name = 'EUROPE'`<br>`ORDER BY`<br> `s_acctbal DESC,`<br> `n_name,`<br> `s_name,`<br> `p_partkey`<br>`LIMIT 100;`<br>`SELECT`<br> `'Original' AS query_variant,`<br> `COUNT(*) AS row_count`<br>`FROM q2_original_result`<br>`UNION ALL`<br>`SELECT`<br> `'Rewritten',`<br> `COUNT(*)`<br>`FROM q2_rewritten_result;`<br>`SELECT COUNT(*) AS original_minus_rewritten`<br>`FROM (`<br> `SELECT * FROM q2_original_result`<br> `EXCEPT ALL`<br> `SELECT * FROM q2_rewritten_result`<br>`) AS differences;`<br>`SELECT COUNT(*) AS rewritten_minus_original`<br>`FROM (`<br> `SELECT * FROM q2_rewritten_result`<br> `EXCEPT ALL`<br> `SELECT * FROM q2_original_result`<br>`) AS differences;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Q17       | `WITH`<br>`original_result AS (`<br> `SELECT`<br> `SUM(l_extendedprice) / 7.0 AS avg_yearly`<br> `FROM lineitem, part`<br> `WHERE`<br> `p_partkey = l_partkey`<br> `AND p_brand = 'Brand#23'`<br> `AND p_container = 'MED BOX'`<br> `AND l_quantity < (`<br> `SELECT 0.2 * AVG(l_quantity)`<br> `FROM lineitem`<br> `WHERE l_partkey = p_partkey`<br> `)`<br>`),`<br>`rewritten_result AS (`<br> `WITH avg_quantity_by_part AS (`<br> `SELECT`<br> `l_partkey,`<br> `AVG(l_quantity) AS avg_quantity`<br> `FROM lineitem`<br> `GROUP BY l_partkey`<br> `)`<br> `SELECT`<br> `SUM(l.l_extendedprice) / 7.0 AS avg_yearly`<br> `FROM part p`<br> `JOIN lineitem l`<br> `ON p.p_partkey = l.l_partkey`<br> `JOIN avg_quantity_by_part aq`<br> `ON aq.l_partkey = p.p_partkey`<br> `WHERE`<br> `p.p_brand = 'Brand#23'`<br> `AND p.p_container = 'MED BOX'`<br> `AND l.l_quantity < 0.2 * aq.avg_quantity`<br>`)`<br>`SELECT`<br> `'Original EXCEPT ALL Rewritten' AS validation,`<br> `COUNT(*) AS difference_count`<br>`FROM (`<br> `SELECT * FROM original_result`<br> `EXCEPT ALL`<br> `SELECT * FROM rewritten_result`<br>`) d`<br>`UNION ALL`<br>`SELECT`<br> `'Rewritten EXCEPT ALL Original',`<br> `COUNT(*)`<br>`FROM (`<br> `SELECT * FROM rewritten_result`<br> `EXCEPT ALL`<br> `SELECT * FROM original_result`<br>`) d;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Q20       | DROP TABLE IF EXISTS q20_original_result;<br><br>CREATE TEMP TABLE q20_original_result AS<br><br>SELECT<br><br>&nbsp; s_name,<br><br>&nbsp; s_address<br><br>FROM<br><br>&nbsp; supplier,<br><br>&nbsp; nation<br><br>WHERE<br><br>&nbsp; s_suppkey IN (<br><br>&nbsp; SELECT<br><br>&nbsp; ps_suppkey<br><br>&nbsp; FROM<br><br>&nbsp; partsupp<br><br>&nbsp; WHERE<br><br>&nbsp; ps_partkey IN (<br><br>&nbsp; SELECT<br><br>&nbsp; p_partkey<br><br>&nbsp; FROM<br><br>&nbsp; part<br><br>&nbsp; WHERE<br><br>&nbsp; p_name LIKE 'forest%'<br><br>&nbsp; )<br><br>&nbsp; AND ps_availqty > (<br><br>&nbsp; SELECT<br><br>&nbsp; 0.5 \* SUM(l_quantity)<br><br>&nbsp; FROM<br><br>&nbsp; lineitem<br><br>&nbsp; WHERE<br><br>&nbsp; l_partkey = ps_partkey<br><br>&nbsp; AND l_suppkey = ps_suppkey<br><br>&nbsp; AND l_shipdate >= DATE '1994-01-01'<br><br>&nbsp; AND l_shipdate < DATE '1995-01-01'<br><br>&nbsp; )<br><br>&nbsp; )<br><br>&nbsp; AND s_nationkey = n_nationkey<br><br>&nbsp; AND n_name = 'CANADA'<br><br>ORDER BY<br><br>&nbsp; s_name;<br><br>DROP TABLE IF EXISTS q20_rewritten_result;<br><br>CREATE TEMP TABLE q20_rewritten_result AS<br><br>WITH lineitem_quantity_by_partsupp AS (<br><br>&nbsp; SELECT<br><br>&nbsp; l_partkey,<br><br>&nbsp; l_suppkey,<br><br>&nbsp; SUM(l_quantity) AS total_quantity<br><br>&nbsp; FROM<br><br>&nbsp; lineitem<br><br>&nbsp; WHERE<br><br>&nbsp; l_shipdate >= DATE '1994-01-01'<br><br>&nbsp; AND l_shipdate < DATE '1995-01-01'<br><br>&nbsp; GROUP BY<br><br>&nbsp; l_partkey,<br><br>&nbsp; l_suppkey<br><br>),<br><br>qualifying_suppliers AS (<br><br>&nbsp; SELECT DISTINCT<br><br>&nbsp; ps.ps_suppkey<br><br>&nbsp; FROM<br><br>&nbsp; partsupp ps<br><br>&nbsp; JOIN part p<br><br>&nbsp; ON p.p_partkey = ps.ps_partkey<br><br>&nbsp; JOIN lineitem_quantity_by_partsupp lq<br><br>&nbsp; ON lq.l_partkey = ps.ps_partkey<br><br>&nbsp; AND lq.l_suppkey = ps.ps_suppkey<br><br>&nbsp; WHERE<br><br>&nbsp; p.p_name LIKE 'forest%'<br><br>&nbsp; AND ps.ps_availqty > 0.5 \* lq.total_quantity<br><br>)<br><br>SELECT<br><br>&nbsp; s.s_name,<br><br>&nbsp; s.s_address<br><br>FROM<br><br>&nbsp; supplier s<br><br>JOIN nation n<br><br>&nbsp; ON s.s_nationkey = n.n_nationkey<br><br>JOIN qualifying_suppliers qs<br><br>&nbsp; ON qs.ps_suppkey = s.s_suppkey<br><br>WHERE<br><br>&nbsp; n.n_name = 'CANADA'<br><br>ORDER BY<br><br>&nbsp; s.s_name;<br><br>SELECT<br><br>&nbsp; 'Original row count' AS validation_check,<br><br>&nbsp; COUNT(\*) AS actual<br><br>FROM q20_original_result<br><br>UNION ALL<br><br>SELECT<br><br>&nbsp; 'Rewritten row count',<br><br>&nbsp; COUNT(\*)<br><br>FROM q20_rewritten_result;<br><br>SELECT<br><br>&nbsp; 'Original EXCEPT ALL Rewritten' AS validation_check,<br><br>&nbsp; COUNT(\*) AS difference_count<br><br>FROM (<br><br>&nbsp; SELECT \* FROM q20_original_result<br><br>&nbsp; EXCEPT ALL<br><br>&nbsp; SELECT \* FROM q20_rewritten_result<br><br>) AS differences;<br><br>SELECT<br><br>&nbsp; 'Rewritten EXCEPT ALL Original' AS validation_check,<br><br>&nbsp; COUNT(\*) AS difference_count<br><br>FROM (<br><br>&nbsp; SELECT \* FROM q20_rewritten_result<br><br>&nbsp; EXCEPT ALL<br><br>&nbsp; SELECT \* FROM q20_original_result<br><br>) AS differences;<br><br>SELECT<br><br>&nbsp; CASE<br><br>&nbsp; WHEN<br><br>&nbsp; (SELECT COUNT(\*) FROM (<br><br>&nbsp; SELECT \* FROM q20_original_result<br><br>&nbsp; EXCEPT ALL<br><br>&nbsp; SELECT \* FROM q20_rewritten_result<br><br>&nbsp; ) AS diff1) = 0<br><br>&nbsp; AND<br><br>&nbsp; (SELECT COUNT(\*) FROM (<br><br>&nbsp; SELECT \* FROM q20_rewritten_result<br><br>&nbsp; EXCEPT ALL<br><br>&nbsp; SELECT \* FROM q20_original_result<br><br>&nbsp; ) AS diff2) = 0<br><br>&nbsp; THEN 'PASS'<br><br>&nbsp; ELSE 'FAIL'<br><br>&nbsp; END AS equivalence_status; |
+
+**Lampiran C.5 Laporan Validasi Query Original dan Rewriting**
+
+Tabel C.5 Ringkasan Laporan Validasi Ekuivalensi SQL Original dan SQL Rewritten
+
+| **Query** | **Laporan**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Q2        | `# Q2 SQL Equivalence Validation Report`<br>`## 1. Informasi Pengujian`<br>`- Query: TPC-H Q2 (Minimum Cost Supplier)`<br>`- DBMS: PostgreSQL 18.6`<br>`- Database: tpch_sf1`<br>`- Scale Factor: SF1`<br>`- Index Configuration: I0 (Primary Key indexes only)`<br>`- Parameter:`<br>`- SIZE = 15`<br>`- TYPE = BRASS`<br>`- REGION = EUROPE`<br>`- Validation Method: Bidirectional EXCEPT ALL`<br>`- Validation Date: 2026-11-12 01:46`<br>`## 2. SQL yang Dibandingkan`<br>`` - Original: `sql/queries/original/Q2_original.sql` ``<br>`` - Rewritten: `sql/queries/rewritten/Q2_rewritten.sql` ``<br>`` - Validation Script: `sql/validation/validate_q2_equivalence.sql` ``<br>`## 3. Hasil Pengujian`<br>`\| Validation Check \| Expected \| Actual \| Status \|`<br>`\|---\|---:\|---:\|---\|`<br>`\| Original row count \| 100 \| 100 \| PASS \|`<br>`\| Rewritten row count \| 100 \| 100 \| PASS \|`<br>`\| Original EXCEPT ALL Rewritten \| 0 \| 0 \| PASS \|`<br>`\| Rewritten EXCEPT ALL Original \| 0 \| 0 \| PASS \|`<br>`## 4. Kesimpulan`<br>`Pengujian menunjukkan bahwa hasil query Q2 Original dan Q2 Rewritten memiliki kesetaraan multiset pada dataset SF1 dengan konfigurasi I0 dan parameter validasi yang ditetapkan. Tidak ditemukan baris yang hanya muncul pada salah satu hasil query.`<br>`Status: PASS`<br>`## 5. Catatan`<br>`Validasi ini merupakan pemeriksaan kesetaraan hasil pada kondisi pengujian yang ditetapkan. Hasil ini belum menjadi bukti kesetaraan untuk seluruh kemungkinan kondisi data dan belum merupakan pengukuran performa query.`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Q17       | `# Q17 SQL Equivalence Validation Report`<br>`## 1. Informasi Pengujian`<br>`- Query: TPC-H Q17 (Small-Quantity-Order Revenue)`<br>`- DBMS: PostgreSQL 18.6`<br>`` - Database: `tpch_sf01` ``<br>`- Scale Factor: SF0.1`<br>`- Index Configuration: I0 (Primary Key indexes only)`<br>`- Parameter:`<br>`- BRAND = Brand#23`<br>`- CONTAINER = MED BOX`<br>`` - Validation Method: Bidirectional `EXCEPT ALL` ``<br>`- Validation Date: 2026-11-12`<br>`## 2. SQL yang Dibandingkan`<br>`` - Original: `sql/queries/original/Q17_original.sql` ``<br>`` - Rewritten: `sql/queries/rewritten/Q17_rewritten.sql` ``<br>`` - Validation Script: `sql/validation/validate_q17_equivalence.sql` ``<br>`## 3. Hasil Pengujian`<br>`\| Validation Check \| Expected \| Actual \| Status \|`<br>`\|---\|---:\|---:\|---\|`<br>`\| Original row count \| 1 \| 1 \| PASS \|`<br>`\| Rewritten row count \| 1 \| 1 \| PASS \|`<br>`\| Original result \| 23512.752857142857 \| 23512.752857142857 \| PASS \|`<br>`\| Rewritten result \| 23512.752857142857 \| 23512.752857142857 \| PASS \|`<br>`\| Original EXCEPT ALL Rewritten \| 0 \| 0 \| PASS \|`<br>`\| Rewritten EXCEPT ALL Original \| 0 \| 0 \| PASS \|`<br>`## 4. Kesimpulan`<br>`Pengujian menunjukkan bahwa hasil query Q17 Original dan Q17 Rewritten memiliki kesetaraan multiset (*multiset equivalence*) pada dataset SF0.1 dengan konfigurasi I0 dan parameter validasi yang ditetapkan.`<br>``Kedua query menghasilkan satu baris dengan nilai `avg_yearly` yang identik, yaitu `23512.752857142857`. Pemeriksaan dua arah menggunakan `EXCEPT ALL` juga menghasilkan 0 baris pada kedua arah perbandingan. Dengan demikian, tidak ditemukan perbedaan hasil antara query Original dan Rewritten pada kondisi pengujian ini.``<br>`**Status: PASS**`<br>`## 5. Catatan`<br>`Validasi ini merupakan pemeriksaan kesetaraan hasil query pada dataset SF0.1 yang digunakan sebagai dataset pendukung untuk pengujian teknis transformasi SQL.`<br>`Hasil ini belum menjadi bukti kesetaraan untuk seluruh kemungkinan kondisi data dan belum merupakan pengukuran performa query. Dataset SF0.1 juga tidak menggantikan dataset utama penelitian, yaitu SF1 dan SF10. Validasi pada dataset utama tetap diperlukan sesuai tahapan validasi penelitian.` |
+| Q20       | `# Q20 SQL Equivalence Validation Report`<br>`## 1. Informasi Pengujian`<br>`- Query: TPC-H Q20 (Potential Part Promotion)`<br>`- DBMS: PostgreSQL 18.6`<br>`` - Database: `tpch_sf01` ``<br>`- Scale Factor: SF0.1`<br>`- Index Configuration: I0 (Primary Key indexes only)`<br>`- Parameter:`<br>`- COLOR = forest`<br>`- DATE = 1994-01-01`<br>`- NATION = CANADA`<br>`` - Validation Method: Bidirectional `EXCEPT ALL` ``<br>`- Validation Date: 2026-11-12`<br>`## 2. SQL yang Dibandingkan`<br>`` - Original: `sql/queries/original/q20_original.sql` ``<br>`` - Rewritten: `sql/queries/rewritten/q20_rewritten.sql` ``<br>`` - Validation Script: `sql/validation/validate_q20_equivalence.sql` ``<br>`## 3. Hasil Pengujian`<br>`\| Validation Check \| Expected \| Actual \| Status \|`<br>`\|---\|---:\|---:\|---\|`<br>`\| Original row count \| 9 \| 9 \| PASS \|`<br>`\| Rewritten row count \| 9 \| 9 \| PASS \|`<br>`\| Original EXCEPT ALL Rewritten \| 0 \| 0 \| PASS \|`<br>`\| Rewritten EXCEPT ALL Original \| 0 \| 0 \| PASS \|`<br>`## 4. Kesimpulan`<br>`Pengujian menunjukkan bahwa hasil query Q20 Original dan Q20 Rewritten memiliki kesetaraan multiset (*multiset equivalence*) pada dataset SF0.1 dengan konfigurasi I0 dan parameter validasi yang ditetapkan.`<br>``Kedua query menghasilkan 9 baris data dengan struktur hasil yang sama, yaitu kolom `s_name` dan `s_address`. Pemeriksaan dua arah menggunakan `EXCEPT ALL` menghasilkan 0 baris pada kedua arah perbandingan. Dengan demikian, tidak ditemukan perbedaan hasil antara query Original dan Rewritten pada kondisi pengujian ini.``<br>`**Status: PASS**`<br>`## 5. Catatan`<br>`Validasi ini merupakan pemeriksaan kesetaraan hasil query pada dataset SF0.1 yang digunakan sebagai dataset pendukung untuk pengujian teknis transformasi SQL.`<br>`Hasil ini belum menjadi bukti kesetaraan untuk seluruh kemungkinan kondisi data dan belum merupakan pengukuran performa query. Dataset SF0.1 juga tidak menggantikan dataset utama penelitian, yaitu SF1 dan SF10. Validasi pada dataset utama tetap diperlukan sesuai tahapan validasi penelitian.`                                                                                                                                                 |
+
+Lampiran D
+
+**Protokol Eksperimen dan Bukti Eksekusi Skrip**
+
+Lampiran E
+
+**Bukti Pilot, Perhitungan, Klasifikasi, dan Pengendalian Validitas**

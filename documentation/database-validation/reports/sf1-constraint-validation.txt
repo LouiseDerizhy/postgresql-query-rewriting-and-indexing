@@ -30,8 +30,8 @@ pk_supplier           supplier    s_suppkey
 
 C. FOREIGN KEY VALIDATION
 -------------------------
-Expected FK Constraints : 10
-Actual FK Constraints   : 10
+Expected FK Constraints : 9
+Actual FK Constraints   : 9
 FK Validation Status   : SUCCESS
 
 Constraint Name          Table       Referenced Table
@@ -52,8 +52,8 @@ D. VALIDATION SUMMARY
 Constraint Type    Expected    Actual    Status
 ---------------    --------    ------    ------
 Primary Key        8           8         SUCCESS
-Foreign Key        10          10        SUCCESS
-Total              18          18        SUCCESS
+Foreign Key        9           9         SUCCESS
+Total              17          17        SUCCESS
 
 Overall Validation Status : SUCCESS
 
