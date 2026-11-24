@@ -29,7 +29,7 @@ Penelitian mengukur pengaruh *SQL query rewriting* (korelasi *subquery* ke JOIN 
 
 | Gerbang | Isi | Status | Tag Git |
 |---|---|---|---|
-| G0 | Lingkungan dan data siap | ⚠ perbarui | ⚠ `G0` |
+| G0 | Lingkungan dan data siap | Lulus | `G0` |
 | G1 | Ekuivalensi SQL (tiga lapis) lulus | ⚠ perbarui | ⚠ |
 | G2 | Desain indeks dikunci | Belum | |
 | G3 | Pilot lulus dan protokol dikunci | Belum | |
@@ -80,9 +80,9 @@ Aturan pembagian: `logs\` berisi keluaran mentah mesin (CSV, `.jsonl`, skrip `.p
 | PostgreSQL | 18.6 (`SELECT version()` dicatat pada log G0) |
 | Python | 3.10.1 |
 | Git | 2.34.1.windows.1 |
-| PowerShell | ⚠ versi |
+| PowerShell | 5.1.19041.6456 |
 | TPC-H Tools (dbgen/qgen) | paket 3.0.1; versi internal dbgen 3.0.0 *build* 0 |
-| HWiNFO | ⚠ versi (log suhu dan frekuensi CPU, interval 1 detik) |
+| HWiNFO | 8.60-6120 (log suhu dan frekuensi CPU, interval 1 detik) |
 
 Kata sandi PostgreSQL **tidak** disimpan di repositori. Gunakan `%APPDATA%\postgresql\pgpass.conf` atau variabel lingkungan `PGPASSWORD` pada sesi.
 
