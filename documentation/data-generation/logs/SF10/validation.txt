@@ -1,0 +1,34 @@
+TPC-H DATASET VALIDATION
+=======================
+
+Scale Factor: SF10
+DBGEN Version: 3.0.0 build 0
+Generation Status: SUCCESS
+
+Generated files: 8
+Empty files: 0
+
+Generation Command:
+dbgen.exe -v -f -s 10
+
+Validation Method:
+PowerShell line-by-line file reading
+
+Table Row Counts:
+Table    RowCount  SizeBytes
+-----    --------  ---------
+customer  1500000  246347642
+lineitem 59986052 7835713740
+nation         25       2249
+orders   15000000 1764195031
+part      2000000  245336157
+partsupp  8000000 1212850769
+region          5        394
+supplier   100000   14276368
+
+Validation Result:
+All eight tables match the expected SF10 row counts.
+All generated files are non-empty.
+
+Validation Date:
+2026-11-11

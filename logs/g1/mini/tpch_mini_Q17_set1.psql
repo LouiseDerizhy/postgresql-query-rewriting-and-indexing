@@ -1,0 +1,74 @@
+\set ON_ERROR_STOP on
+BEGIN;
+CREATE TEMP TABLE _o AS (
+-- ============================================================
+-- TPC-H Q17: Small-Quantity-Order Revenue
+-- Variant: Original (O)
+-- Reference: TPC-H 3.0.1, Clause 2.4.17
+-- DBMS: PostgreSQL 18.6
+--
+-- Fixed validation parameters:
+-- BRAND     = Brand#23
+-- CONTAINER = MED BOX
+-- ============================================================
+
+SELECT
+    SUM(l_extendedprice) / 7.0 AS avg_yearly
+FROM
+    lineitem,
+    part
+WHERE
+    p_partkey = l_partkey
+    AND p_brand = 'Brand#23'
+    AND p_container = 'MED BOX'
+    AND l_quantity < (
+        SELECT
+            0.2 * AVG(l_quantity)
+        FROM
+            lineitem
+        WHERE
+            l_partkey = p_partkey
+    )
+);
+CREATE TEMP TABLE _r AS (
+-- ============================================================
+-- TPC-H Q17: Small-Quantity-Order Revenue
+-- Variant: Rewritten (R)
+-- Reference: TPC-H 3.0.1, Clause 2.4.17
+-- DBMS: PostgreSQL 18.6
+--
+-- Fixed validation parameters:
+-- BRAND     = Brand#23
+-- CONTAINER = MED BOX
+--
+-- Rewrite strategy:
+-- Correlated scalar subquery -> Pre-aggregation + JOIN
+-- ============================================================
+
+SELECT SUM(l.l_extendedprice) / 7.0 AS avg_yearly
+FROM part p
+JOIN lineitem l ON p.p_partkey = l.l_partkey
+JOIN (
+    SELECT l_partkey, AVG(l_quantity) AS avg_quantity
+    FROM lineitem
+    GROUP BY l_partkey
+) aq ON aq.l_partkey = p.p_partkey
+WHERE p.p_brand = 'Brand#23' AND p.p_container = 'MED BOX'
+  AND l.l_quantity < 0.2 * aq.avg_quantity
+);
+\copy (SELECT * FROM _o) TO 'C:/Coding/thesis/logs/g1/mini/csv/tpch_mini_Q17_set1_O.csv' WITH (FORMAT csv, HEADER)
+\copy (SELECT * FROM _r) TO 'C:/Coding/thesis/logs/g1/mini/csv/tpch_mini_Q17_set1_R.csv' WITH (FORMAT csv, HEADER)
+\echo @@ROWS_O
+SELECT count(*) FROM _o;
+\echo @@ROWS_R
+SELECT count(*) FROM _r;
+\echo @@DIFF_OR
+SELECT count(*) FROM (SELECT * FROM _o EXCEPT ALL SELECT * FROM _r) d;
+\echo @@DIFF_RO
+SELECT count(*) FROM (SELECT * FROM _r EXCEPT ALL SELECT * FROM _o) d;
+\echo @@COLS_O
+SELECT attname || ':' || format_type(atttypid, atttypmod) FROM pg_attribute WHERE attrelid = '_o'::regclass AND attnum > 0 AND NOT attisdropped ORDER BY attnum;
+\echo @@COLS_R
+SELECT attname || ':' || format_type(atttypid, atttypmod) FROM pg_attribute WHERE attrelid = '_r'::regclass AND attnum > 0 AND NOT attisdropped ORDER BY attnum;
+\echo @@END
+ROLLBACK;

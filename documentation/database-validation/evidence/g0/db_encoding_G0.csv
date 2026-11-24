@@ -1,0 +1,5 @@
+datname,encoding,datcollate,datctype,datlocprovider
+tpch_mini,UTF8,C,C,c
+tpch_sf01,UTF8,English_Indonesia.1252,English_Indonesia.1252,c
+tpch_sf1,UTF8,English_Indonesia.1252,English_Indonesia.1252,c
+tpch_sf10,UTF8,English_Indonesia.1252,English_Indonesia.1252,c

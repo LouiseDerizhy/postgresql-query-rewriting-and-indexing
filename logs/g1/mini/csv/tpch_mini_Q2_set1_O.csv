@@ -1,0 +1,4 @@
+s_acctbal,s_name,n_name,p_partkey,p_mfgr,s_address,s_phone,s_comment
+200.00,Supplier#2               ,GERMANY                  ,1,Manufacturer#1           ,addr2,00-000-000-0002,mini
+100.00,Supplier#1               ,FRANCE                   ,1,Manufacturer#1           ,addr1,00-000-000-0001,mini
+100.00,Supplier#1               ,FRANCE                   ,7,Manufacturer#1           ,addr1,00-000-000-0001,mini

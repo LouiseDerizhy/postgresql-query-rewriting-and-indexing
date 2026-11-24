@@ -1,0 +1,12 @@
+ table_name | index_name  | index_method | is_primary | is_unique |                                     index_definition                                      
+------------+-------------+--------------+------------+-----------+-------------------------------------------------------------------------------------------
+ customer   | pk_customer | btree        | t          | t         | CREATE UNIQUE INDEX pk_customer ON public.customer USING btree (c_custkey)
+ lineitem   | pk_lineitem | btree        | t          | t         | CREATE UNIQUE INDEX pk_lineitem ON public.lineitem USING btree (l_orderkey, l_linenumber)
+ nation     | pk_nation   | btree        | t          | t         | CREATE UNIQUE INDEX pk_nation ON public.nation USING btree (n_nationkey)
+ orders     | pk_orders   | btree        | t          | t         | CREATE UNIQUE INDEX pk_orders ON public.orders USING btree (o_orderkey)
+ part       | pk_part     | btree        | t          | t         | CREATE UNIQUE INDEX pk_part ON public.part USING btree (p_partkey)
+ partsupp   | pk_partsupp | btree        | t          | t         | CREATE UNIQUE INDEX pk_partsupp ON public.partsupp USING btree (ps_partkey, ps_suppkey)
+ region     | pk_region   | btree        | t          | t         | CREATE UNIQUE INDEX pk_region ON public.region USING btree (r_regionkey)
+ supplier   | pk_supplier | btree        | t          | t         | CREATE UNIQUE INDEX pk_supplier ON public.supplier USING btree (s_suppkey)
+(8 rows)
+
