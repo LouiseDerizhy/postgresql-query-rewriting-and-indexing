@@ -1,5 +1,20 @@
-Name           Used (GB)     Free (GB) Provider      Root                                               CurrentLocation
-----           ---------     --------- --------      ----                                               ---------------
-C                 222.12        143.69 FileSystem    C:\
-D                  14.07         78.70 FileSystem    D:\                                           Downloads\New folder
-G                   1.93         13.07 FileSystem    G:\
+﻿Dicatat: 2026-11-25T00:27:45
+psql: psql (PostgreSQL) 18.6
+Python: Python 3.10.1
+Git: git version 2.34.1.windows.1
+PowerShell: 5.1.19041.6456
+HWiNFO64: 8.60-6120
+
+Name                      : Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz
+NumberOfCores             : 4
+NumberOfLogicalProcessors : 8
+
+RAM (GB): 7.84
+
+OsName         : Microsoft Windows 10 Home Single Language
+OsVersion      : 10.0.19045
+WindowsVersion : 2009
+
+Ukuran DB (G0): tpch_mini 8766 kB; tpch_sf01 158 MB; tpch_sf1 1488 MB; tpch_sf10 14 GB
+Dataset .tbl: 11,68 GiB; ruang kosong C: 98,2 GiB
+X = ≈52 GiB (I1+I2 SF10 = batas atas, diperbarui setelah G2); kosong ≥ X: terpenuhi
