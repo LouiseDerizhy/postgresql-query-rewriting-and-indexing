@@ -1,16 +1,3 @@
-
--- ============================================================
--- TPC-H Q2: Minimum Cost Supplier
--- Variant: Rewritten (R)
--- Reference: TPC-H 3.0.1, Clause 2.4.2
--- DBMS: PostgreSQL 18.6
---
--- Fixed validation parameters:
--- SIZE   = 15
--- TYPE   = BRASS
--- REGION = EUROPE
--- ============================================================
-
 SELECT s_acctbal, s_name, n_name, p_partkey, p_mfgr, s_address, s_phone, s_comment
 FROM part
 JOIN partsupp ON p_partkey = ps_partkey
