@@ -1,0 +1,63 @@
+\set ON_ERROR_STOP on
+BEGIN;
+CREATE TEMP TABLE _o AS (
+SELECT s_name, s_address
+FROM supplier, nation
+WHERE s_suppkey IN (
+      SELECT ps_suppkey
+      FROM partsupp
+      WHERE ps_partkey IN (
+            SELECT p_partkey
+            FROM part
+            WHERE p_name LIKE 'azure%'
+      )
+        AND ps_availqty > (
+            SELECT 0.5 * SUM(l_quantity)
+            FROM lineitem
+            WHERE l_partkey = ps_partkey
+              AND l_suppkey = ps_suppkey
+              AND l_shipdate >= DATE '1995-01-01'
+              AND l_shipdate < DATE '1995-01-01' + INTERVAL '1 year'
+      )
+  )
+  AND s_nationkey = n_nationkey
+  AND n_name = 'FRANCE'
+ORDER BY s_name
+);
+CREATE TEMP TABLE _r AS (
+SELECT s.s_name, s.s_address
+FROM supplier s
+JOIN nation n ON s.s_nationkey = n.n_nationkey
+JOIN (
+    SELECT DISTINCT ps.ps_suppkey
+    FROM partsupp ps
+    JOIN part p ON p.p_partkey = ps.ps_partkey
+    JOIN (
+        SELECT l_partkey, l_suppkey, SUM(l_quantity) AS total_quantity
+        FROM lineitem
+        WHERE l_shipdate >= DATE '1995-01-01'
+          AND l_shipdate < DATE '1995-01-01' + INTERVAL '1 year'
+        GROUP BY l_partkey, l_suppkey
+    ) lq ON lq.l_partkey = ps.ps_partkey AND lq.l_suppkey = ps.ps_suppkey
+    WHERE p.p_name LIKE 'azure%'
+      AND ps.ps_availqty > 0.5 * lq.total_quantity
+) qs ON qs.ps_suppkey = s.s_suppkey
+WHERE n.n_name = 'FRANCE'
+ORDER BY s.s_name
+);
+\copy (SELECT * FROM _o) TO 'C:/Coding/thesis/logs/g1/sf01/csv/tpch_sf01_Q20_set2_O.csv' WITH (FORMAT csv, HEADER)
+\copy (SELECT * FROM _r) TO 'C:/Coding/thesis/logs/g1/sf01/csv/tpch_sf01_Q20_set2_R.csv' WITH (FORMAT csv, HEADER)
+\echo @@ROWS_O
+SELECT count(*) FROM _o;
+\echo @@ROWS_R
+SELECT count(*) FROM _r;
+\echo @@DIFF_OR
+SELECT count(*) FROM (SELECT * FROM _o EXCEPT ALL SELECT * FROM _r) d;
+\echo @@DIFF_RO
+SELECT count(*) FROM (SELECT * FROM _r EXCEPT ALL SELECT * FROM _o) d;
+\echo @@COLS_O
+SELECT attname || ':' || format_type(atttypid, atttypmod) FROM pg_attribute WHERE attrelid = '_o'::regclass AND attnum > 0 AND NOT attisdropped ORDER BY attnum;
+\echo @@COLS_R
+SELECT attname || ':' || format_type(atttypid, atttypmod) FROM pg_attribute WHERE attrelid = '_r'::regclass AND attnum > 0 AND NOT attisdropped ORDER BY attnum;
+\echo @@END
+ROLLBACK;

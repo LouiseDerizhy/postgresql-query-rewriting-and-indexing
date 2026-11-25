@@ -1,0 +1,61 @@
+\set ON_ERROR_STOP on
+BEGIN;
+CREATE TEMP TABLE _o AS (
+SELECT
+    s_acctbal, s_name, n_name, p_partkey, p_mfgr, s_address, s_phone, s_comment
+FROM part, supplier, partsupp, nation, region
+WHERE p_partkey = ps_partkey
+  AND s_suppkey = ps_suppkey
+  AND p_size = 30
+  AND p_type LIKE '%COPPER'
+  AND s_nationkey = n_nationkey
+  AND n_regionkey = r_regionkey
+  AND r_name = 'AMERICA'
+  AND ps_supplycost = (
+      SELECT MIN(ps_supplycost)
+      FROM partsupp, supplier, nation, region
+      WHERE p_partkey = ps_partkey
+        AND s_suppkey = ps_suppkey
+        AND s_nationkey = n_nationkey
+        AND n_regionkey = r_regionkey
+        AND r_name = 'AMERICA'
+  )
+ORDER BY s_acctbal DESC, n_name, s_name, p_partkey
+LIMIT 100
+);
+CREATE TEMP TABLE _r AS (
+SELECT s_acctbal, s_name, n_name, p_partkey, p_mfgr, s_address, s_phone, s_comment
+FROM part
+JOIN partsupp ON p_partkey = ps_partkey
+JOIN supplier ON s_suppkey = ps_suppkey
+JOIN nation   ON s_nationkey = n_nationkey
+JOIN region   ON n_regionkey = r_regionkey
+JOIN (
+    SELECT ps_partkey AS m_partkey, MIN(ps_supplycost) AS min_supplycost
+    FROM partsupp
+    JOIN supplier ON s_suppkey = ps_suppkey
+    JOIN nation   ON s_nationkey = n_nationkey
+    JOIN region   ON n_regionkey = r_regionkey
+    WHERE r_name = 'AMERICA'
+    GROUP BY ps_partkey
+) AS msc ON msc.m_partkey = p_partkey AND ps_supplycost = msc.min_supplycost
+WHERE p_size = 30 AND p_type LIKE '%COPPER' AND r_name = 'AMERICA'
+ORDER BY s_acctbal DESC, n_name, s_name, p_partkey
+LIMIT 100
+);
+\copy (SELECT * FROM _o) TO 'C:/Coding/thesis/logs/g1/sf01/csv/tpch_sf01_Q2_set3_O.csv' WITH (FORMAT csv, HEADER)
+\copy (SELECT * FROM _r) TO 'C:/Coding/thesis/logs/g1/sf01/csv/tpch_sf01_Q2_set3_R.csv' WITH (FORMAT csv, HEADER)
+\echo @@ROWS_O
+SELECT count(*) FROM _o;
+\echo @@ROWS_R
+SELECT count(*) FROM _r;
+\echo @@DIFF_OR
+SELECT count(*) FROM (SELECT * FROM _o EXCEPT ALL SELECT * FROM _r) d;
+\echo @@DIFF_RO
+SELECT count(*) FROM (SELECT * FROM _r EXCEPT ALL SELECT * FROM _o) d;
+\echo @@COLS_O
+SELECT attname || ':' || format_type(atttypid, atttypmod) FROM pg_attribute WHERE attrelid = '_o'::regclass AND attnum > 0 AND NOT attisdropped ORDER BY attnum;
+\echo @@COLS_R
+SELECT attname || ':' || format_type(atttypid, atttypmod) FROM pg_attribute WHERE attrelid = '_r'::regclass AND attnum > 0 AND NOT attisdropped ORDER BY attnum;
+\echo @@END
+ROLLBACK;
