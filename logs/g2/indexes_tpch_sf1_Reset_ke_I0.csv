@@ -1,0 +1,9 @@
+indexname,indexdef
+pk_customer,"CREATE UNIQUE INDEX pk_customer ON public.customer USING btree (c_custkey)"
+pk_lineitem,"CREATE UNIQUE INDEX pk_lineitem ON public.lineitem USING btree (l_orderkey, l_linenumber)"
+pk_nation,"CREATE UNIQUE INDEX pk_nation ON public.nation USING btree (n_nationkey)"
+pk_orders,"CREATE UNIQUE INDEX pk_orders ON public.orders USING btree (o_orderkey)"
+pk_part,"CREATE UNIQUE INDEX pk_part ON public.part USING btree (p_partkey)"
+pk_partsupp,"CREATE UNIQUE INDEX pk_partsupp ON public.partsupp USING btree (ps_partkey, ps_suppkey)"
+pk_region,"CREATE UNIQUE INDEX pk_region ON public.region USING btree (r_regionkey)"
+pk_supplier,"CREATE UNIQUE INDEX pk_supplier ON public.supplier USING btree (s_suppkey)"
